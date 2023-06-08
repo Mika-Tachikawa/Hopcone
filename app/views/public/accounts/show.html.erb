@@ -1,1 +1,9 @@
 <h1>ここはShowページ</h1>
+
+
+<!-- ゲストユーザーの場合は
+<% if user.name != "guestuser" %>
+<div class='row'>
+  <%= link_to '',edit_account_path(accounts),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+</div>
+<% end %>

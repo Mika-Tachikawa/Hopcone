@@ -13,6 +13,10 @@ Rails.application.routes.draw do
     registrations: "admin/registrations",
     sessions: "admin/sessions"
   }
+  
+  devise_scope :user do
+    post 'guest/guest_sign_in', to: 'guest/sessions#guest_sign_in'
+  end
 
   scope module: :public do
     resources :accounts
