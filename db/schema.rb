@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_06_044933) do
+ActiveRecord::Schema.define(version: 2023_06_08_004816) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,10 +52,37 @@ ActiveRecord::Schema.define(version: 2023_06_06_044933) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "review_tags", force: :cascade do |t|
+    t.integer "review_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.string "brewery", default: "", null: false
+    t.text "location", default: "", null: false
+    t.integer "hoppy"
+    t.integer "acidity"
+    t.integer "sweetness"
+    t.float "evaluation", null: false
+    t.text "comment"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
-    t.text "introduction", default: "", null: false
+    t.text "introduction", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "is_deleted", default: false, null: false
     t.string "reset_password_token"

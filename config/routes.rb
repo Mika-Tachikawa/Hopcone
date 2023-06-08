@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   
+  resource :review_tags, only: [:create, :destroy]
+  
   devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -11,7 +13,6 @@ Rails.application.routes.draw do
     registrations: "admin/registrations",
     sessions: "admin/sessions"
   }
-
 
   scope module: :public do
     resources :accounts
