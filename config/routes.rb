@@ -21,14 +21,14 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :accounts
     patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
-    resources :reviews, only: [:index, :create, :show, :edit, :update]
+    resources :reviews
     root :to =>"homes#top"
     get "about" =>"homes#about", as: 'about'
   end
 
   namespace :admin do
-    resources :accounts, only: [:index, :show, :edit, :update]
-    resources :tags, only: [:index, :new, :create, :show, :edit, :update]
+    resources :accounts, only: [:index, :show, :edit, :update, :destroy]
+    resources :tags
     resources :reviews, only: [:index, :create, :show, :edit, :update]
     root :to =>"homes#top"
   end
