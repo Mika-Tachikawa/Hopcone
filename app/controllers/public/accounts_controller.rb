@@ -8,11 +8,12 @@ class Public::AccountsController < ApplicationController
   
   def show
     #レビューデータが作成できたら下記のコメントアウトを外す
-    #@account = User.find(params[:id]) 
-    #@reviews = @account.reviews
+    @account = User.find(params[:id]) 
+    @reviews = @account.reviews
   end
   
   def edit
+    @account = User.find(params[:id]) 
   end
   
   def update

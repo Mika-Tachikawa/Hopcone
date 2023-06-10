@@ -1,9 +1,30 @@
-<h1>ここはShowページ</h1>
+<h3>(ここはShowページ)</h3>
 
+<!-- ユーザーの詳細 -->
+<div>
+  <%= image_tag @account.get_profile_image(150,150) %>
+  <span><big><%= @account.name %></big></span>
+</div>
 
-<!-- ゲストユーザーの場合は
-<% if user.name != "guestuser" %>
+<!-- ユーザーの投稿一覧 -->
+<% @reviews.each do |review| %>
+<div>
+  <%= image_tag review.get_beer_image(100,100) %>
+  <h3>ビール名:<%= review.name %></h3>
+  <p>ブルワリー:<%= review.brewery %></p>
+  <p>ロケーション:<%= review.location %></p>
+  <p>コメント：<%= review.comment %></p>
+  <p><small>
+    reviewd by 
+    <%= review.user.name %>
+    <%= image_tag review.user.get_profile_image(50,50) %>
+  </small></p>
+</div>
+<% end %>
+
+<!-- ゲストユーザーはアカウントを編集できないように設定 -->
+<% if @account.name != "guestuser" %>
 <div class='row'>
-  <%= link_to '',edit_account_path(accounts),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{user.id}" %>
+  <%= link_to '',edit_account_path(@account),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@account.id}" %>
 </div>
 <% end %>
