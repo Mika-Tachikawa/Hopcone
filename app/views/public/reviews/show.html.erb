@@ -1,0 +1,24 @@
+<div>
+  <%= image_tag @review.get_beer_image(150,150) %>
+  <h3>ビール名:<%= @review.name %></h3>
+  <p>ブルワリー:<%= @review.brewery %></p>
+  <p>ロケーション:<%= @review.location %></p>
+  <p>コメント：<%= @review.comment %></p>
+  <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
+  <p><small>
+    reviewd by
+    <%= @review.user.name %>
+    <%= image_tag @review.user.get_profile_image(50,50) %>
+  </small></p>
+</div>
+
+<div>
+  <% if @review.user_id == current_user.id %>
+  <%= link_to "Edit", edit_review_path(@review.id), class: "btn btn-success"%>
+  <% end %>
+</div>
+<div>
+  <% if @review.user_id == current_user.id %>
+  <%= link_to "Destroy", review_path(@review.id), method: :delete, class: "btn btn-danger","data-confirm" => "本当に消しますか？" %>
+  <% end %>
+</div>

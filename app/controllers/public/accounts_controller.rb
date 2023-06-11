@@ -7,7 +7,6 @@ class Public::AccountsController < ApplicationController
   end
   
   def show
-    #レビューデータが作成できたら下記のコメントアウトを外す
     @account = User.find(params[:id]) 
     @reviews = @account.reviews
   end
@@ -17,6 +16,12 @@ class Public::AccountsController < ApplicationController
   end
   
   def update
+    @account = User.find(params[:id])
+    if @account.update(user_params)  # データ（レコード）を編集
+      redirect_to account_path(@account), notice: 'You have updated user successfully.'
+    else
+      render :edit
+    end
   end
   
   def destroy
@@ -29,5 +34,12 @@ class Public::AccountsController < ApplicationController
       redirect_to reviews_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
   end 
+  
+  
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :profile_image, :introduction)
+  end
   
 end

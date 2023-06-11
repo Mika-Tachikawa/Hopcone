@@ -1,16 +1,16 @@
-<!-- 修正中 
+<!-- 修正中 -->
 
 <%= form_with model: @account do |f| %>
 
+  <p><label for="inputImage">Image</label></p>
+  <P><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></P>
+
   <p><label for="inputName">Name</label></p>
   <p><%= f.text_field :name, autofocus: true, id:"inputName", size: "50" %></p>
-  
-  <p><label for="inputImage">Image</label></p>
-  <P><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></P>  
 
   <p><label for="inputIntroduction">Introduction</label></p>
-  <P><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", size: "50" %></P>    
-  
+  <P><%= f.text_area :introduction, autofocus: true, id:"inputIntroduction", size: "50" %></P>
+
   <p><%= f.submit "Update User", class: "btn btn-secondary"%></p>
 
 <% end %>
