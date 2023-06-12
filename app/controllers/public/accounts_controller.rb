@@ -2,19 +2,19 @@ class Public::AccountsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :ensure_guest_user, only: [:edit]
-    
+
   def index
   end
-  
+
   def show
-    @account = User.find(params[:id]) 
+    @account = User.find(params[:id])
     @reviews = @account.reviews
   end
-  
+
   def edit
-    @account = User.find(params[:id]) 
+    @account = current_user
   end
-  
+
   def update
     @account = User.find(params[:id])
     if @account.update(user_params)  # データ（レコード）を編集
@@ -23,23 +23,26 @@ class Public::AccountsController < ApplicationController
       render :edit
     end
   end
-  
-  def destroy
+
+  def withdrawal
+    @account = current_user
+    @account.update(is_deleted: true)
+    reset_session
+    redirect_to root_path, notice: "退会処理が完了しました。ご利用ありがとうございました。"
   end
-  
-  
+
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.name == "guestuser"
       redirect_to reviews_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
     end
-  end 
-  
-  
+  end
+
+
   private
 
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-  
+
 end

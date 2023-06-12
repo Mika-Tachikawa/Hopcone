@@ -18,5 +18,17 @@ class Public::SessionsController < Devise::SessionsController
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email]) 
   end
+
+# 退会しているかを判断し、退会済なら新規登録画面へ遷移
+def customer_state
+  @account = User.find_by(email: params[:user][:email])
+  return if !@customer
+  if @customer.valid_password?(params[:userr][:password])&& @user.is_deleted == true
+    flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
+    redirect_to new_user_registration_path
+  else
+    flash[:notice] = "ログインに成功しました。"
+  end
+end
  
 end

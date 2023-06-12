@@ -4,6 +4,7 @@
 <div>
   <%= image_tag @account.get_profile_image(150,150) %>
   <span><big><%= @account.name %></big></span>
+  <p>自己紹介:<%= @account.introduction %></p>
 </div>
 
 <!-- ユーザーの投稿一覧 -->
@@ -25,6 +26,6 @@
 <!-- ゲストユーザーはアカウントを編集できないように設定 -->
 <% if @account.name != "guestuser" %>
 <div class='row'>
-  <%= link_to '',edit_account_path(@account),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_#{@account.id}" %>
+  <%= link_to '',edit_account_path(@account),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_account_#{@account.id}" %>
 </div>
 <% end %>

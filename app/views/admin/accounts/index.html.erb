@@ -1,1 +1,24 @@
 <h1>管理者側ユーザー一覧</h1>
+
+<div>
+  <table>
+    <tr>
+      <th>ユーザー名</th>
+      <th>メールアドレス</th>
+    </tr>
+  <% @accounts.each do |accounts| %>
+    <tr>
+      <td>
+        <%= link_to admin_account_path(accounts.id) do%>
+          <%= accounts.name %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to admin_account_path(accounts.id) do%>
+          <%= accounts.email %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+  </table>
+</div>

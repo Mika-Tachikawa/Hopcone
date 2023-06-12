@@ -21,9 +21,16 @@ class Public::ReviewsController < ApplicationController
   end
 
   def edit
+    @review = Review.find(params[:id])
   end
 
   def update
+    @review = Review.find(params[:id])
+    if @review.update(review_params)  # データ（レコード）を編集
+      redirect_to review_path(@review), notice: 'You have updated book successfully.'
+    else
+      render :edit
+    end  
   end
 
   def destroy

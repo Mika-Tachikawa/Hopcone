@@ -1,6 +1,7 @@
 class Admin::AccountsController < ApplicationController
 
   def index
+    @accounts = User.all
   end
   
   def show
@@ -14,5 +15,5 @@ class Admin::AccountsController < ApplicationController
   
   def destroy
   end
-  
+
 end

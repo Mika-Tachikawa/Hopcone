@@ -1,0 +1,24 @@
+<h1>レビュー編集</h1>
+  <%= form_with model: @review, method: :patch do |f| %>
+    <h4>画像</h4>
+      <%= f.file_field :beer_image, accept: "image/*" %>
+    <h4>ビール名</h4>
+      <%= f.text_area :name%>
+    <h4>ブルワリー</h4>
+      <%= f.text_area :brewery%>
+    <h4>ロケーション(飲んだ店/購入場所)</h4>
+      <%= f.text_area :location %>
+    <h4>苦味</h4>
+      <%= f.number_field :hoppy, class: "taste", min: 0, max: 5 %>
+    <h4>酸味</h4>
+      <%= f.number_field :acidity, class: "taste", min: 0, max: 5 %>
+    <h4>甘味</h4>
+      <%= f.number_field :sweetness, class: "taste", min: 0, max: 5 %>
+    <h4>タグ</h4>
+      <%= f.select :tag_id, Tag.all.map{|o| [o.name, o.id]}, { include_blank: "--選択してください--" } %>
+    <h4>評価</h4>
+      <%= f.number_field :evaluation, class: "taste", min: 0, max: 5 %>
+    <h4>コメント</h4>
+      <%= f.text_area :comment %>
+    <%= f.submit '更新' %>
+  <% end %>
