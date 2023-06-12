@@ -9,8 +9,7 @@ class Public::ReviewsController < ApplicationController
     @reviews = Review.page(params[:page])
     @review.user_id = current_user.id
     @review.save
-    #redirect_to review_path(@reviews)
-    redirect_to review_path(review.id)
+    redirect_to review_path(@review)
   end
 
   def index
@@ -30,7 +29,7 @@ class Public::ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
-    redirect_to review_path
+    redirect_to reviews_path
   end
 
 

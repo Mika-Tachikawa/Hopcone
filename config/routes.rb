@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
+    resources :reviews
     resources :accounts
     patch 'users/withdrawal' => 'users#withdrawal', as: 'withdrawal'
-    resources :reviews
     root :to =>"homes#top"
     get "about" =>"homes#about", as: 'about'
   end
