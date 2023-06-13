@@ -1,0 +1,20 @@
+<%= flash[:notice] %>
+
+<% @reviews.each do |review| %>
+<div>
+  <%= link_to admin_review_path(review.id) do %>
+    <%= image_tag review.get_beer_image(150,150) %>
+    <h3>ビール名:<%= review.name %></h3>
+  <% end %>
+    <p>ブルワリー:<%= review.brewery %></p>
+    <p>ロケーション:<%= review.location %></p>
+    <p>コメント：<%= review.comment %></p>
+    <p><small>
+      reviewd by
+      <%= link_to admin_account_path(review.user.id) do%>
+        <%= review.user.name %>
+        <%= image_tag review.user.get_profile_image(50,50) %>
+      <% end %>
+    </small></p>
+</div>
+<% end %>

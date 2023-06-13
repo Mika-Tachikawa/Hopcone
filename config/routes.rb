@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :accounts, only: [:index, :show, :edit, :update, :destroy]
     resources :tags
-    resources :reviews, only: [:index, :create, :show, :edit, :update]
+    resources :reviews, only: [:index, :create, :show, :edit, :update, :destroy]
     root :to =>"homes#top"
   end
   

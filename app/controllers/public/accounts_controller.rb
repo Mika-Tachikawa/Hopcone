@@ -44,5 +44,9 @@ class Public::AccountsController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
+  
+  def review_params
+    params.require(:review).permit(:name, :beer_image, :brewery, :location, :hoppy, :acidity, :sweetness, :evaluation, :comment)
+  end
 
 end

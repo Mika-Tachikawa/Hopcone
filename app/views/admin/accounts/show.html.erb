@@ -1,0 +1,34 @@
+<%= flash[:notice] %>
+
+<!-- ユーザーの詳細 -->
+<div>
+  <%= image_tag @account.get_profile_image(150,150) %>
+  <span><big><%= @account.name %></big></span>
+  <p>メールアドレス:<%= @account.email %></p>
+  <p>自己紹介:<%= @account.introduction %></p>
+</div>
+
+<!-- 管理者側からのユーザー退会機能の実装 -->
+<p>ユーザー退会処理</p>
+<%= form_with model: @account, url: admin_account_path, local: true do |f| %>
+    <%= f.radio_button :is_deleted, :false, checked: true %>
+    <%= f.label :is_deleted, "有効", value: false %>
+    <%= f.radio_button :is_deleted, :true %>
+    <%= f.label :is_deleted, "退会", value: true %>
+<% end %>
+
+<!-- ユーザーの投稿一覧 -->
+<% @reviews.each do |reviews| %>
+<div>
+  <%= link_to admin_review_path(reviews.id) do %>
+    <%= image_tag reviews.get_beer_image(100,100) %>
+    <h3>ビール名:<%= reviews.name %></h3>
+  <% end %>
+    <p>ブルワリー:<%= reviews.brewery %></p>
+    <p>ロケーション:<%= reviews.location %></p>
+    <p>コメント：<%= reviews.comment %></p>
+</div>
+<% end %>
+
+
+

@@ -13,7 +13,7 @@ class Public::ReviewsController < ApplicationController
   end
 
   def index
-    @reviews = Review.all
+    @reviews = Review.page(params[:page])
   end
 
   def show
@@ -27,7 +27,7 @@ class Public::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     if @review.update(review_params)  # データ（レコード）を編集
-      redirect_to review_path(@review), notice: 'You have updated book successfully.'
+      redirect_to review_path(@review), notice: 'You have updated review successfully.'
     else
       render :edit
     end  
@@ -35,8 +35,11 @@ class Public::ReviewsController < ApplicationController
 
   def destroy
     @review = Review.find(params[:id])
-    @review.destroy
-    redirect_to reviews_path
+    if @review.destroy
+     redirect_to reviews_path, notice: 'You have deleted review successfully.'
+    else
+      render :edit
+    end
   end
 
 

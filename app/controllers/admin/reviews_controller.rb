@@ -1,9 +1,12 @@
 class Admin::ReviewsController < ApplicationController
   
   def index
+    @reviews = Review.page(params[:page])
   end
   
   def show
+    @review = Review.find(params[:id])
+    @account = User.find(params[:id])
   end
   
   def edit
@@ -13,6 +16,22 @@ class Admin::ReviewsController < ApplicationController
   end
   
   def destroy
+    @review = Review.find(params[:id])
+    if @review.destroy
+      redirect_to admin_reviews_path, notice: 'You have deleted review successfully.'
+    else
+      render :show
+    end
+  end
+  
+    private
+
+  def review_params
+    params.require(:review).permit(:name, :beer_image, :brewery, :location, :hoppy, :acidity, :sweetness, :evaluation, :comment)
+  end
+  
+  def user_params
+    params.require(:user).permit(:name, :profile_image, :email, :introduction)
   end
   
 end

@@ -1,8 +1,14 @@
-<div>
-  <% if admin_signed_in? %>
-    <%= link_to "staff only", admin_root_path, class: "btn btn-outline-secondary btn-sm" %>
-  <% else %>
-    <%= link_to "staff only", admin_session_path, class: "btn btn-outline-secondary btn-sm" %>
-  <% end %>
-  <p>© Hopcone</p>
-</div>
+<footer class="bg-white text-dark pt-5 pb-4">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="mx-auto">
+        <% if admin_signed_in? %>
+          <%= link_to "staff only", admin_root_path, class: "btn btn-outline-secondary btn-sm" %>
+        <% else %>
+          <%= link_to "staff only", admin_session_path, class: "btn btn-outline-secondary btn-sm" %>
+        <% end %>
+        <p>© Hopcone</p>
+      </div>
+    </div>
+  </div>
+</footer>
