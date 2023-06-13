@@ -1,13 +1,13 @@
-<footer class="bg-white text-dark pt-5 pb-4">
+<footer class="text-dark pt-5 pb-4" style="background-color:#fbf4d7">
   <div class="container-fluid">
     <div class="row">
       <div class="mx-auto">
+        <p>© Hopcone</p>
         <% if admin_signed_in? %>
           <%= link_to "staff only", admin_root_path, class: "btn btn-outline-secondary btn-sm" %>
         <% else %>
           <%= link_to "staff only", admin_session_path, class: "btn btn-outline-secondary btn-sm" %>
         <% end %>
-        <p>© Hopcone</p>
       </div>
     </div>
   </div>

@@ -1,26 +1,39 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-2">  
-      <%= image_tag @account.get_profile_image(150,150) %>
-      <span><big><%= @account.name %></big></span>
-      <p>自己紹介:<%= @account.introduction %></p>
+
+<div class="container-fluid text-center" style="margin-top: 3rem;">
+  
+  <div class="row" >
+    
+    <div class="col-md-3"> 
+      <h1><%= @account.name %></h1>
+      <%= image_tag @account.get_profile_image(250,250) %>
+      <p><%= @account.introduction %></p>
       <!-- ゲストユーザーはアカウントを編集できないように設定 -->
       <% if @account.name != "guestuser" %>
-        <%= link_to '編集',edit_account_path(@account),class: "btn btn-outline-secondary  edit_account_#{@account.id}" %>
+        <%= link_to edit_account_path(@account),class: "btn btn-outline-secondary btn-lg edit_account_#{@account.id}" do%>
+          <i class="fa-solid fa-user-pen"></i>
+        <% end %>
       <% end %>
     </div>
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="mx-auto">
+    <div class="col-md-9"> 
+      <div class="mx-auto">
+        <div class="row row-cols-3">
           <% @reviews.each do |review| %>
-            <%= link_to review_path(review.id) do %>
-              <%= image_tag review.get_beer_image(180,180) %>
-              <h5><%= review.name %></h5>
-            <% end %>
-            <p><small><%= review.brewery %></small></p>
+            <div class="col mb-3">
+              <div class="card text-bg-light" style="width: 20rem; height: 20rem;">
+                <%= link_to review_path(review.id) do %>
+                  <%= image_tag review.get_beer_image(200,200) %>
+                  <h5>【<%= review.name %>】</h5>
+                <% end %>
+                <div class="card-body">
+                  <p><small>◼️️<%= review.brewery %></small></p>
+                </div>
+              </div>
+            </div>
           <% end %>
         </div>
       </div>
     </div>
-
+          
+  </div>
+</div>
