@@ -1,22 +1,38 @@
 <%= flash[:notice] %>
 
-<h3>(ここはレビュー一覧)</h3>
+<div class="container-fluid text-center" style="margin-top: 3rem;">
+  <div class="row" >
 
-<% @reviews.each do |review| %>
-<div>
-  <%= link_to review_path(review.id) do %>
-    <%= image_tag review.get_beer_image(150,150) %>
-    <h3>ビール名:<%= review.name %></h3>
-  <% end %>
-    <p>ブルワリー:<%= review.brewery %></p>
-    <p>ロケーション:<%= review.location %></p>
-    <p>コメント：<%= review.comment %></p>
-    <p><small>
-      reviewd by
-      <%= link_to account_path(review.user.id) do%>
-        <%= review.user.name %>
-        <%= image_tag review.user.get_profile_image(50,50) %>
-      <% end %>
-    </small></p>
+    <h3>新着レビュー</h3>
+
+      <div class="col-md-12"> 
+        <div class="mx-auto">
+          <div class="row row-cols-3">
+            <% @reviews.each do |review| %>
+              <div class="col mb-3">
+                <div class="card text-bg-light" style="width: 25rem; height: 25rem;">
+                  <%= link_to review_path(review.id) do %>
+                    <%= image_tag review.get_beer_image(200,200) %>
+                  <% end %>
+                  <div class="card-body">    
+                    <%= link_to review_path(review.id) do %>
+                      <h3>【<%= review.name %>】</h3>
+                    <% end %>
+                    <p>◼<%= review.brewery %></p>
+                    <p><small>
+                      reviewd by
+                      <%= link_to account_path(review.user.id) do%>
+                        <%= review.user.name %>
+                        <%= image_tag review.user.get_profile_image(50,50) %>
+                      <% end %>
+                    </small></p>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+  </div>
 </div>
-<% end %>

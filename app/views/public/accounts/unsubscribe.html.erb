@@ -1,17 +1,17 @@
-<div>
-  <h1>本当に退会しますか？</h1>
-  <p>
-    退会すると、<br>
-    これまでに作成したレビューや、<br>
-    いいね、フォローの記録を、<br>
-    閲覧できなくなります。<br>
-  </p>
-</div>
-
-<div>
-  <%= link_to "退会しない", :back, class: "btn btn-secondary" %>
-</div>
-
-<div>
-  <%= link_to "退会する",withdrawal_path, method: :patch, class: "btn btn-danger", "data-confirm" => "本当に退会しますか？" %>
+<div class="container-fluid text-center" style="margin-top: 10rem;">
+  <div class="row" >
+    <div class="mx-auto">
+      <h1><b>本当に退会しますか？</b></h1>      
+      <h4>
+        退会すると、<br>
+        これまでに作成したレビューや、<br>
+        いいね、フォローの記録を、<br>
+        閲覧できなくなります。<br>
+      </h4>
+      <div>
+        <%= link_to "退会しない", account_path(current_user.id), class: "btn btn-success" %>
+        <%= link_to "退会する",withdrawal_path, method: :patch, class: "btn btn-danger", "data-confirm" => "本当に退会しますか？" %>
+      </div>
+    </div>
+  </div>
 </div>

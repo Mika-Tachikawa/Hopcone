@@ -1,6 +1,5 @@
 
 <div class="container-fluid text-center" style="margin-top: 3rem;">
-  
   <div class="row" >
     
     <div class="col-md-3"> 
@@ -21,11 +20,15 @@
           <% @reviews.each do |review| %>
             <div class="col mb-3">
               <div class="card text-bg-light" style="width: 20rem; height: 20rem;">
-                <%= link_to review_path(review.id) do %>
-                  <%= image_tag review.get_beer_image(200,200) %>
-                  <h5>【<%= review.name %>】</h5>
-                <% end %>
+                <div class="card-img" style="padding-top: 0.5rem;"> 
+                  <%= link_to review_path(review.id) do %>
+                    <%= image_tag review.get_beer_image(200,200) %>
+                  <% end %>
+                </div>
                 <div class="card-body">
+                  <%= link_to review_path(review.id) do %>
+                    <h5 class="card-title">【<%= review.name %>】</h5>
+                  <% end %>
                   <p><small>◼️️<%= review.brewery %></small></p>
                 </div>
               </div>

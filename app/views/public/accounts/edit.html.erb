@@ -1,17 +1,29 @@
-<!-- 修正中 -->
-
-<%= form_with model: @account,url:account_path(@account), method: :patch do |f| %>
-
-  <p><label for="inputImage">Image</label></p>
-  <P><%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %></P>
-
-  <p><label for="inputName">Name</label></p>
-  <p><%= f.text_field :name, autofocus: true, id: "inputName", size: "50" %></p>
-
-  <p><label for="inputIntroduction">Introduction</label></p>
-  <P><%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", size: "50" %></P>
-
-  <p><%= f.submit "Update User", class: "btn btn-secondary"%></p>
-  <p><%= link_to "退会する", unsubscribe_path, class: "btn btn-danger" %></p>
-
-<% end %>
+<div class="container-fluid text-center" style="margin-top: 10rem;">
+  <div class="row" >
+    <div class="mx-auto">
+      
+      <div class="card card.border-secondary text-bg-light" style="width: 50rem; height: 20rem;">
+        <div class="card-body text-right" style="padding-right: 6rem; background-color:#fbf4d7">
+          <%= form_with model: @account,url:account_path(@account), method: :patch do |f| %>
+            <div class="field">
+              <%= f.label :Profileimage %>
+              <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
+            </div>
+            <div class="field">
+              <%= f.label :name %>
+              <%= f.text_field :name, autofocus: true, id: "inputName", size: "50" %>
+            </div>
+            <div class="field">
+              <%= f.label :introduction %>
+              <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", size: "50" %>
+            </div>
+            <div class="actions">
+              <%= f.submit "更新", class: "btn btn-success btn-lg"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+        <%= link_to "退会する", unsubscribe_path, class: "btn btn-secondary" %>
+    </div>
+  </div>
+</div>
