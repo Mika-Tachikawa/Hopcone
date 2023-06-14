@@ -24,7 +24,7 @@
 <!-- ユーザーの投稿一覧 -->
 <% @reviews.each do |reviews| %>
 <div>
-  <%= link_to admin_review_path(reviews.id) do %>
+  <%= link_to admin_review_path(reviews) do %>
     <%= image_tag reviews.get_beer_image(100,100) %>
     <h3>ビール名:<%= reviews.name %></h3>
   <% end %>

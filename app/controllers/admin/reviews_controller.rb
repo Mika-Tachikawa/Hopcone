@@ -6,7 +6,7 @@ class Admin::ReviewsController < ApplicationController
   
   def show
     @review = Review.find(params[:id])
-    @account = User.find(params[:id])
+    #@account = User.find(params[:id])
   end
   
   def edit
@@ -27,7 +27,7 @@ class Admin::ReviewsController < ApplicationController
     private
 
   def review_params
-    params.require(:review).permit(:name, :beer_image, :brewery, :location, :hoppy, :acidity, :sweetness, :evaluation, :comment)
+    params.require(:review).permit(:name, :beer_image, :brewery, :location, :hoppy, :acidity, :sweetness, :evaluation, :comment, :star)
   end
   
   def user_params

@@ -10,7 +10,7 @@
           <div class="row row-cols-3">
             <% @reviews.each do |review| %>
               <div class="col mb-3">
-                <div class="card text-bg-light" style="width: 25rem; height: 25rem;">
+                <div class="card text-bg-light" style="width: 25rem; height: 30rem;">
                   <%= link_to review_path(review.id) do %>
                     <%= image_tag review.get_beer_image(200,200) %>
                   <% end %>
@@ -19,6 +19,21 @@
                       <h3>【<%= review.name %>】</h3>
                     <% end %>
                     <p>◼<%= review.brewery %></p>
+                    
+                    <div id="show-stars"></div>
+                    <script>
+                      let showRateElement = document.querySelector('#show-stars');
+                      let showOpt = {
+                        starOn: "<%= asset_path('star-on.png') %>",
+                        starOff: "<%= asset_path('star-off.png') %>",
+                        starHalf: "<%= asset_path('star-half.png') %>",
+                        scoreName: 'review[star]',
+                        score: "<%= review.star %>",
+                        readOnly: true
+                      };
+                      window.raty(showRateElement, showOpt);
+                    </script>
+                    
                     <p><small>
                       reviewd by
                       <%= link_to account_path(review.user.id) do%>
