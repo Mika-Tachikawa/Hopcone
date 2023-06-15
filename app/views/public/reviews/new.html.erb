@@ -12,15 +12,15 @@
           </div>
           <div class="field">
             <span>ビール名</span>
-            <%= f.text_area :name%>
+            <%= f.text_area :name, size: "40"%>
           </div>
           <div class="field">
             <span>ブルワリー</span>
-            <%= f.text_area :brewery%>
+            <%= f.text_area :brewery, size: "40"%>
           </div>
           <div class="field">
-            <span>ロケーション(飲んだ店/購入場所)</span>
-            <%= f.text_area :location %>
+            <span>ロケーション</span>
+            <%= f.text_area :location, size: "40"%>
           </div>
           <div class="field">
             <span>苦味</span>
@@ -35,9 +35,29 @@
             <%= f.number_field :sweetness, class: "taste", min: 0, max: 5 %>
           </div>
           <div class="field">
-            <span>タグ</span>
+            <span>旧タグ</span>
             <%= f.select :tag_id, Tag.all.map{|o| [o.name, o.id]}, { include_blank: "--選択してください--" } %>
           </div>
+          
+          
+          <div class="field">
+          <script src="jquery.min.js"></script>
+          <select src="tag.js" style="width: 250px">
+            <span>タグ</span>
+              <!-- %= f.collection_select(:tag_id, Tag.all, :id, :name, {include_blank: "--選択してください--"}, {class:"form-control js-example-basic-multiple",include_hidden: false}) % -->
+              <%= f.collection_select(:tag_id, Tag.all, :id, :name, {include_blank: "--選択してください--"}, {class:"form-control js-example-basic-multiple",multiple: true,include_hidden: false}) %>
+          </select>
+          </div>
+          
+          <form>
+          <select  class="tag-select"  style="width: 250px">
+                <option>シトラス</option>
+                <option>オレンジ</option>
+                <option>チョコ</option>
+                <option>ホッピー</option>
+                <option>バニラ</option>
+</select>
+</form>
           
           <div id="stars">
             <label>Rate</label>
