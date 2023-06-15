@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     patch 'users/withdrawal' => 'accounts#withdrawal', as: 'withdrawal'
     root :to =>"homes#top"
     get "about" =>"homes#about", as: 'about'
+    get '/search', to: 'searches#search',as: 'search'
   end
 
   namespace :admin do
