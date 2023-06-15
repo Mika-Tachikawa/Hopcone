@@ -1,55 +1,60 @@
 <%= flash[:notice] %>
 
-<div class="container-fluid text-center" style="margin-top: 3rem;">
-  <div class="row" >
-
-      <div class="mx-auto">
-        
-        <div class="card text-bg-light" style="width: 80rem; height: 30rem;">
-          <div class="row no-gutters">    
-            <div class="col-md-6 card-img" style="padding-top: 2rem;"> 
-              <%= image_tag @review.get_beer_image(400,400) %>
-            </div>
-            <div class="card-body col-md-6 text-left"> 
-              <h3 class="card-title">【<%= @review.name %>】</h3>
-              <p>◼ブルワリー：<%= @review.brewery %></p>
-              <p>◼購入場所　：<%= @review.location %></p>
-              <div id="show-stars"><label>◼評価　　　：</label></div>
-                <script>
-                  let showRateElement = document.querySelector('#show-stars');
-                  let showOpt = {
-                    starOn: "<%= asset_path('star-on.png') %>",
-                    starOff: "<%= asset_path('star-off.png') %>",
-                    starHalf: "<%= asset_path('star-half.png') %>",
-                    scoreName: 'review[star]',
-                    score: "<%= @review.star %>",
-                    readOnly: true
-                  };
-                  window.raty(showRateElement, showOpt);
-                </script>
-              <p>◼コメント　：<%= @review.comment %></p>
-              <p>◼投稿日　　：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
-              <p><small>  
-                reviewd by
-                <%= link_to account_path(@review.user.id) do%>
-                  <%= @review.user.name %>
-                  <%= image_tag @review.user.get_profile_image(50,50) %>
-                <% end %>
-              </small></p>
-            </div>
+<div class="container-fluid text-left" style="margin-top: 3rem;">
+  <div class="row">
+    
+    <div class="col-md-10">
+      <div class="card text-bg-light" style="width: 70rem; height: 30rem;">
+        <div class="row no-gutters"> 
+          <div class="col-md-5 card-img" style="padding-top: 2rem; padding-left: 2rem;"> 
+            <%= image_tag @review.get_beer_image(350,350) %>
+          </div>
+          <div class="card-body col-md-5 text-left" style="padding-top: 2rem; padding-left: 2rem;"> 
+            <h3 class="card-title">【<%= @review.name %>】</h3>
+            <p>◼ブルワリー：<%= @review.brewery %></p>
+            <p>◼購入場所　：<%= @review.location %></p>
+            <div id="show-stars"><label>◼評価　　　：</label></div>
+              <script>
+                let showRateElement = document.querySelector('#show-stars');
+                let showOpt = {
+                  starOn: "<%= asset_path('star-on.png') %>",
+                  starOff: "<%= asset_path('star-off.png') %>",
+                  starHalf: "<%= asset_path('star-half.png') %>",
+                  scoreName: 'review[star]',
+                  score: "<%= @review.star %>",
+                  readOnly: true
+                };
+                window.raty(showRateElement, showOpt);
+              </script>
+            <p>◼コメント　：<%= @review.comment %></p>
+            <p>◼投稿日　　：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
+            <p><small>◻️コメント数  <%= @review.review_comments.count %></small></p>
+            <p><small>  
+              reviewd by
+              <%= link_to account_path(@review.user.id) do%>
+                <%= @review.user.name %>
+                <%= image_tag @review.user.get_profile_image(50,50) %>
+              <% end %>
+            </small></p>
           </div>
         </div>
-
-        <div>
-          <% if @review.user_id == current_user.id %>
-          <%= link_to "Edit", edit_review_path(@review.id), class: "btn btn-success"%>
-          <% end %>
-          <% if @review.user_id == current_user.id %>
-          <%= link_to "Destroy", review_path(@review.id), method: :delete, class: "btn btn-danger","data-confirm" => "本当に消しますか？" %>
-          <% end %>
-        </div>
-        
       </div>
-      
+    </div>
+    
+    <div class="col-md-2">
+      <%= render "public/review_comments/form", review: @review, comment: @review_comment %>
+      <%= render "public/review_comments/index", review: @review %>
+    </div>
+    
   </div>
+  
+    <div class="col-md-5 text-center">
+      <% if @review.user_id == current_user.id %>
+      <%= link_to "Edit", edit_review_path(@review.id), class: "btn btn-success"%>
+      <% end %>
+      <% if @review.user_id == current_user.id %>
+      <%= link_to "Destroy", review_path(@review.id), method: :delete, class: "btn btn-danger","data-confirm" => "本当に消しますか？" %>
+      <% end %>
+    </div>
+  
 </div>

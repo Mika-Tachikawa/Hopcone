@@ -14,6 +14,10 @@
               <%= f.text_field :name, autofocus: true, id: "inputName", size: "50" %>
             </div>
             <div class="field">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true,id: "inputE", size: "50" %>
+            </div>
+            <div class="field">
               <%= f.label :introduction %>
               <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", size: "50" %>
             </div>

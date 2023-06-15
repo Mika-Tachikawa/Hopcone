@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   end
 
   scope module: :public do
-    resources :reviews
+    resources :reviews do
+    resources :review_comments, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]  
+    end
     resources :accounts
     get 'users/unsubscribe' => 'accounts#unsubscribe', as: 'unsubscribe'
     patch 'users/withdrawal' => 'accounts#withdrawal', as: 'withdrawal'
