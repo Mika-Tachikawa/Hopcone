@@ -24,4 +24,19 @@ class Review < ApplicationRecord
     profile_image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def save_tag(sent_tags)
+    current_tags = self.tags.pluck(:name) unless self.tags.nil?
+    old_tags = current_tags - sent_tags
+    new_tags = sent_tags - current_tags
+　
+    old_tags.each do |old|
+      self.review_tags.delete ReviewTag.find_by(name: old)
+    end
+　
+    new_tags.each do |new|
+      new_review_tag = ReviewTag.find_or_create_by(name: new)
+      self.review_tags << new_review_tag
+    end
+  end
+
 end

@@ -29,6 +29,13 @@
             <p>◼コメント　：<%= @review.comment %></p>
             <p>◼投稿日　　：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
             <p><small>◻️コメント数  <%= @review.review_comments.count %></small></p>
+            
+            <% @review_tags.each do |tag| %>
+              <%= link_to tag_review_path(tag_id: tag.id) do %>
+                <%= tag.name %>
+              <% end %>
+            <% end %>
+            
             <p><small>  
               reviewd by
               <%= link_to account_path(@review.user.id) do%>
