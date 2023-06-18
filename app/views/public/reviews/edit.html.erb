@@ -34,12 +34,10 @@
             <span>甘味</span>
             <%= f.number_field :sweetness, class: "taste", min: 0, max: 5 %>
           </div>
-          <div class="field">
+          <div class="form-group">
             <span>タグ</span>
-            <%= f.select :tag_id, Tag.all.map{|o| [o.name, o.id]}, { include_blank: "--選択してください--" } %>
+            <%= f.text_field :tag_name, class: 'form-control review_tag_name' %>
           </div>
-
-          
           <div id="stars"><label>評価</label></div>
 
             <script>

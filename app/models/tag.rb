@@ -1,18 +1,36 @@
 class Tag < ApplicationRecord
   
-  has_many :review_tag, dependent: :destroy
-  has_many :reviews, through: :review_tag, dependent: :destroy
+  has_many :review_tags, dependent: :destroy, foreign_key: 'tag_id'
+  has_many :reviews, through: :review_tags
   
-  def self.search_for(content, method)
+  scope :merge_reviews, -> (tags){ }
+  
+  def self.search_reviews_for(content, method)
+    
     if method == 'perfect'
-      Tag.where(title: content)
+      tags = Tag.where(name: content)
     elsif method == 'forward'
-      Tag.where('title LIKE ?', content+'%')
+      tags = Tag.where('name LIKE ?', content + '%')
     elsif method == 'backward'
-      Tag.where('title LIKE ?', '%'+content)
+      tags = Tag.where('name LIKE ?', '%' + content)
     else
-      Ta.where('title LIKE ?', '%'+content+'%')
+      tags = Tag.where('name LIKE ?', '%' + content + '%')
     end
+    
+    return tags.inject(init = []) {|result, tag| result + tag.reviews}
+    
   end
+  
+  #def self.search_for(content, method)
+    #if method == 'perfect'
+      #Tag.where(title: content)
+    #elsif method == 'forward'
+      #Tag.where('title LIKE ?', content+'%')
+    #elsif method == 'backward'
+      #Tag.where('title LIKE ?', '%'+content)
+    #else
+      #Ta.where('title LIKE ?', '%'+content+'%')
+    #end
+  #end
   
 end

@@ -10,24 +10,27 @@ class Public::ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @reviews = Review.page(params[:page])
     @review.user_id = current_user.id
-    tag_list = params[:review][:name].split(nil)
+    tag_list = params[:review][:tag_name].split(',')
     if @review.save 
-      @review.save_tag(tag_list)
-      redirect_to review_path(@review)
+      @review.save_tags(tag_list)
+      redirect_to review_path(@review), notice: "You have created book successfully."
     else
-      redirect_to review_path(@review)
+      #redirect_to review_path(@review)
+      @reviews = Review.all
+      render 'index'
     end
   end
 
   def index
     @reviews = Review.page(params[:page])
-    @tag_list = Tag.all
+    #@tag_list = Tag.all
   end
 
   def show
     @review = Review.find(params[:id])
+    @reviews = Review.page(params[:page])
     @review_comment = ReviewComment.new
-    @review_tags = @review.review_tags 
+    @review_tags = @review.review_tags
   end
 
   def edit
@@ -36,7 +39,9 @@ class Public::ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
+    tag_list = params[:review][:tag_name].split(',')
     if @review.update(review_params)  # データ（レコード）を編集
+      @review.save_tags(tag_list)
       redirect_to review_path(@review), notice: 'You have updated review successfully.'
     else
       render :edit
@@ -58,6 +63,13 @@ class Public::ReviewsController < ApplicationController
   def review_params
     #params.require(:review).permit(:name, :beer_image, :brewery, :location, :hoppy, :acidity, :sweetness, :evaluation, :comment, :star, { tag_ids: [] }).merge(user_id: current_user.id)
     params.require(:review).permit(:name, :beer_image, :brewery, :location, :hoppy, :acidity, :sweetness, :evaluation, :comment, :star)
+  end
+
+  def ensure_correct_user
+    @review = Review.find(params[:id])
+    unless @review.user == current_user
+      redirect_to reviews_path
+    end
   end
 
 end
