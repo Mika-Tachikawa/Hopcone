@@ -1,7 +1,12 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-10" style="padding-top: 1rem; padding-left: 5rem;">
-      <p><%= image_tag 'taproom.jpg', :size =>'1500x1100' %></p>
+    <div class="col-md-8" style="padding-top: 1rem; padding-left: 3rem;">
+      <p><%= image_tag 'taproom_2.jpg', :size =>'870x660' %></p>
+    </div>
+    <div class="col-md-4" style="padding-top: 1rem; background-color:#4a423b">
+          <h3 class="text-light">Latest post</h3>
+          <%= render'public/reviews/index', reviews:@reviews_latest5%>
+          <h4 class="nav-link" style="text-align: right"><%= link_to "view more...→", guest_guest_sign_in_path, method: :post %></h4>
     </div>
   </div>
 </div>
