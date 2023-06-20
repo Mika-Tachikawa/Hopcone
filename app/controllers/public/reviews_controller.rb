@@ -23,6 +23,7 @@ class Public::ReviewsController < ApplicationController
 
   def index
     @reviews = Review.page(params[:page])
+    @review = Review.find(params[:id])
     #@tag_list = Tag.all
   end
 

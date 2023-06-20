@@ -1,11 +1,26 @@
-<table class="table table-bordered border-light text-light">
-  <tbody>
-    <% reviews.each do |review| %>
-    <tr>
-        <td><%= image_tag review.get_beer_image(80,80) %></td>
-        <td><%= review.name %></td>
-        <td><%= review.brewery %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <table class="table table-sm table-striped text-dark">
+        <tbody>
+          <% reviews.each do |review| %>
+          <tr>
+            <td><%= link_to review_path(review.id) do %>
+                <%= image_tag review.get_beer_image(80,80) %>
+                <% end %></td>
+            <td><%= link_to review_path(review.id) do %>
+                <%= review.name %>
+                <% end %></td>
+            <td><%= link_to review_path(review.id) do %>
+                <%= review.brewery %>
+                <% end %></td>
+            <td><% review.tags.each do |tag| %>
+                <%= tag.name %>
+                <% end %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

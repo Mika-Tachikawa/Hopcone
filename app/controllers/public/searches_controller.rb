@@ -1,5 +1,6 @@
 class Public::SearchesController < ApplicationController
-  
+	before_action :authenticate_user!  
+
 	def search
 		@model = params[:model]
 		@content = params[:content]
@@ -8,8 +9,8 @@ class Public::SearchesController < ApplicationController
 			@records = User.search_for(@content, @method)
 		elsif @model == 'review'
 			@records = Review.search_for(@content, @method)
-		else
-			@records = Tag.search_for(@content, @method)
+		elsif @model == 'tag'
+			@records = Tag.search_reviews_for(@content, @method)
 		end
 	end
   

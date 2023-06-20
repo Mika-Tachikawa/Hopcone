@@ -1,8 +1,20 @@
-<table>
-  <tbody>
-    <th>
-      <td><!-- %= image_tag account.get_profile_image(100,100) % ></td>
-      <td><%= account.name %></td>
-    </th>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <table class="table table-sm table-striped text-dark">
+        <tbody>
+          <% accounts.each do |account| %>
+          <tr>
+              <td><%= link_to account_path(account) do%>
+                  <%= image_tag account.get_profile_image(80,80) %>
+                  <% end %></td>
+              <td><%= link_to account_path(account) do%>
+                  <h5><%= account.name %></h5>
+                  <% end %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

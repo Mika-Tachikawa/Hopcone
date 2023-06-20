@@ -17,6 +17,9 @@
 
   <body class="d-flex flex-column vh-100" style="background-color:#fbf4d7">
     <%= render 'layouts/header' %>
+    <div class="row justify-content-end" style="padding-top: 1rem; padding-bottom: 1rem; padding-right: 3rem;">
+      <%= render 'public/searches/form' %>
+    </div>
       <main>
         <%= yield %>   
       </main>
