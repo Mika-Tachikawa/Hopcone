@@ -21,9 +21,9 @@
                       <h3>【<%= review.name %>】</h3>
                     <% end %>
                     <p>◼<%= review.brewery %></p>
-                    <div id="show-stars"></div>
+                    <div id="show-stars_<%= review.id %>"></div>
                     <script>
-                      var showRateElement = document.querySelector('#show-stars');
+                      var showRateElement = document.querySelector('#show-stars_<%= review.id %>');
                       showRateElement.innerHTML = '';
                       var showOpt = {
                         starOn: "<%= asset_path('star-on.png') %>",
