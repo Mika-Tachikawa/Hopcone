@@ -23,7 +23,7 @@ class Public::ReviewsController < ApplicationController
 
   def index
     @reviews = Review.page(params[:page])
-    @review = Review.find(params[:id])
+    #@review = Review.find(params[:id])
     #@tag_list = Tag.all
   end
 
@@ -32,6 +32,9 @@ class Public::ReviewsController < ApplicationController
     @reviews = Review.page(params[:page])
     @review_comment = ReviewComment.new
     @review_tags = @review.review_tags
+    gon.acidity = @review.acidity
+    gon.bitterness = @review.hoppy
+    gon.sweetness = @review.sweetness
   end
 
   def edit

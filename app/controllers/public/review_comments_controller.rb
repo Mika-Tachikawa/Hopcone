@@ -9,6 +9,8 @@ class Public::ReviewCommentsController < ApplicationController
   end
 
   def destroy
+    #@comment = ReviewComment.find_by(id: params[:id], review_id: params[:review_id])
+    #@comment.destroy
     ReviewComment.find_by(id: params[:id], review_id: params[:review_id]).destroy
     redirect_to request.referer
   end

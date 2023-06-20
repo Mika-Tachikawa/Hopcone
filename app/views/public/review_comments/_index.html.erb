@@ -12,7 +12,7 @@
         <td><%= comment.comment %></td>
         <td>
           <% if comment.user == current_user %>
-            <%= link_to "Destroy", review_review_comment_path(review, comment), method: :delete, class: "btn btn-outline-danger btn-sm pull-right" %>
+            <%= link_to "Destroy", review_review_comment_path(review, comment), method: :delete, class: "btn btn-outline-danger btn-sm pull-right"%>
           <% end %>
         </td>
       </tr>
