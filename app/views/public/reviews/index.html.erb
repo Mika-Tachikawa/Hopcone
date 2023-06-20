@@ -5,26 +5,27 @@
 
     <h3>新着レビュー</h3>
 
-      <div class="col-md-12"> 
+      <div class="col-md-12">
         <div class="mx-auto">
           <div class="row row-cols-3">
             <% @reviews.each do |review| %>
               <div class="col mb-3">
                 <div class="card text-bg-light" style="width: 25rem; height: 30rem;">
-                  <div class="card-img" style="padding-top: 1rem;"> 
+                  <div class="card-img" style="padding-top: 1rem;">
                     <%= link_to review_path(review.id) do %>
                       <%= image_tag review.get_beer_image(200,200) %>
                     <% end %>
                   </div>
-                  <div class="card-body">    
+                  <div class="card-body">
                     <%= link_to review_path(review.id) do %>
                       <h3>【<%= review.name %>】</h3>
                     <% end %>
                     <p>◼<%= review.brewery %></p>
                     <div id="show-stars"></div>
                     <script>
-                      let showRateElement = document.querySelector('#show-stars');
-                      let showOpt = {
+                      var showRateElement = document.querySelector('#show-stars');
+                      showRateElement.innerHTML = '';
+                      var showOpt = {
                         starOn: "<%= asset_path('star-on.png') %>",
                         starOff: "<%= asset_path('star-off.png') %>",
                         starHalf: "<%= asset_path('star-half.png') %>",
@@ -34,7 +35,7 @@
                       };
                       window.raty(showRateElement, showOpt);
                     </script>
-                    
+
                     <p><small>
                       reviewd by
                       <%= link_to account_path(review.user.id) do%>

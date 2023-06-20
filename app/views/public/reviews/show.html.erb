@@ -1,5 +1,3 @@
-<%= include_gon %>
-
 <%= flash[:notice] %>
 
 <div class="container-fluid text-left" style="margin-top: 3rem;">
@@ -17,8 +15,9 @@
             <p>◼購入場所　：<%= @review.location %></p>
             <div id="show-stars"><label>◼評価　　　：</label></div>
               <script>
-                let showRateElement = document.querySelector('#show-stars');
-                let showOpt = {
+                var showRateElement = document.querySelector('#show-stars');
+                showRateElement.innerHTML = '';
+                var showOpt = {
                   starOn: "<%= asset_path('star-on.png') %>",
                   starOff: "<%= asset_path('star-off.png') %>",
                   starHalf: "<%= asset_path('star-half.png') %>",
@@ -41,9 +40,9 @@
                 <!-- %= tag.name % -->
               <!-- % end % -->
             <!-- % end % -->
-            
+
             <canvas id="myChart" width="20" height="20"></canvas>
-            
+
             <p><small>
               reviewd by
               <%= link_to account_path(@review.user.id) do%>

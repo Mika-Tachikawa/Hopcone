@@ -1,65 +1,69 @@
 $(document).on('turbolinks:load', function(){ //ページを読み込んだらjs発火
 
- var acidity = gon.acidity; //gonを使った変数をjsで変数に代入
 
- var bitterness = gon.hoppy;
+ if (window.gon != null && $('#myChart').length) {
 
- var sweetness = gon.sweetness;
+  var acidity = gon.acidity; //gonを使った変数をjsで変数に代入
 
- 
- //console.log("ここまでは動いている？？？？");
+  var bitterness = gon.hoppy;
 
- var ctx = document.getElementById("myChart"); //html内のcanvasタグ
+  var sweetness = gon.sweetness;
 
- 
- //console.log(ctx); //上にちゃんと値が入っているか
 
- new Chart(ctx, {
+  //console.log("ここまでは動いている？？？？");
 
- type: 'radar', //レーダーチャートを指定
+  var ctx = document.getElementById("myChart"); //html内のcanvasタグ
 
- data: {
 
- labels: ["酸", "苦", "甘"], //5角形の頂点の名前
+  //console.log(ctx); //上にちゃんと値が入っているか
 
- datasets: [{ 
+  new Chart(ctx, {
 
- label: '味のバランス', //レーダーチャートの表すもの 
+  type: 'radar', //レーダーチャートを指定
 
- backgroundColor: "rgba(0,0,80,0.4)", //グラフの色
+  data: {
 
- borderColor: "rgba(0,0,80,1)", //レーダーの線の色
+  labels: ["酸", "苦", "甘"], //5角形の頂点の名前
 
- data: [acidity,bitterness,sweetness] //実際に引っ張るデータの変数
+  datasets: [{
 
- }],
+  label: '味のバランス', //レーダーチャートの表すもの
 
- },
+  backgroundColor: "rgba(0,0,80,0.4)", //グラフの色
 
- options: {
+  borderColor: "rgba(0,0,80,1)", //レーダーの線の色
 
- scale: {
+  data: [acidity,bitterness,sweetness] //実際に引っ張るデータの変数
 
- pointLabels: {
+  }],
 
- fontColor: "green" //5角形の頂点の名前の色
+  },
 
- },
+  options: {
 
- ticks: {
+  scale: {
 
- min: 0, //minimun（チャートの中心)
+  pointLabels: {
 
- max: 5, //maximum (五角形の頂点)
+  fontColor: "green" //5角形の頂点の名前の色
 
- stepSize: 1 //1目盛りの区切り
+  },
 
+  ticks: {
+
+  min: 0, //minimun（チャートの中心)
+
+  max: 5, //maximum (五角形の頂点)
+
+  stepSize: 1 //1目盛りの区切り
+
+  }
+
+  }
+
+  }
+
+  });
  }
-
- }
-
- }
-
- });
 
  });
