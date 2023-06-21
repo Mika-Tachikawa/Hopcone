@@ -23,6 +23,16 @@ class Public::ReviewsController < ApplicationController
 
   def index
     @reviews = Review.page(params[:page])
+    if params[:hoppy].to_i > 0
+      @reviews = @reviews.where(hoppy: params[:hoppy])
+    end
+    if params[:acidity].to_i > 0
+      @reviews = @reviews.where(acidity: params[:acidity])
+    end
+    if params[:sweetness].to_i > 0
+      @reviews = @reviews.where(hoppy: params[:sweetness])
+    end
+    
     #@review = Review.find(params[:id])
     #@tag_list = Tag.all
   end
