@@ -9,7 +9,7 @@
             <%= comment.user.name %>
           <% end %>
         </td>
-        <td><%= comment.comment %></td>
+        <td><small><%= comment.comment %></small></td>
         <td>
           <% if comment.user == current_user %>
             <%= link_to "Destroy", review_review_comment_path(review, comment), method: :delete, class: "btn btn-outline-danger btn-sm pull-right"%>

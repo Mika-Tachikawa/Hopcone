@@ -1,12 +1,11 @@
 <%= flash[:notice] %>
 
-<div class="container-fluid text-center" style="margin-top: 3rem;">
+<div class="container-fluid text-center" style="margin-top: 1rem;">
   <div class="row" >
-
-    <h3>新着レビュー</h3>
-
-      <div class="col-md-12">
-        <div class="mx-auto">
+    
+    <div class="col-md-12">
+      <div class="mx-auto">
+        <h4><i class="fa-solid fa-landmark"></i>reviews</h4>
           <div class="row row-cols-3">
             <% @reviews.each do |review| %>
               <div class="col mb-3">
@@ -35,7 +34,6 @@
                       };
                       window.raty(showRateElement, showOpt);
                     </script>
-
                     <p><small>
                       reviewd by
                       <%= link_to account_path(review.user.id) do%>
@@ -47,6 +45,9 @@
                 </div>
               </div>
             <% end %>
+            
+            <%= paginate @reviews %>
+            
           </div>
         </div>
       </div>

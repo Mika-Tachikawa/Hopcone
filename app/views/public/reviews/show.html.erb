@@ -3,17 +3,16 @@
 <div class="container-fluid text-left" style="margin-top: 3rem;">
   <div class="row">
 
-    <div class="col-md-10">
-      <div class="card text-bg-light" style="width: 70rem; height: 30rem;">
+    <div class="col-md-9">
+      <div class="card text-bg-light" style="width: 60rem; height: 50rem;">
         <div class="row no-gutters">
+
           <div class="col-md-5 card-img" style="padding-top: 2rem; padding-left: 2rem;">
             <%= image_tag @review.get_beer_image(350,350) %>
           </div>
-          <div class="card-body col-md-5 text-left" style="padding-top: 2rem; padding-left: 2rem;">
+          <div class="card-body col-md-4 text-left" style="padding-top: 2rem; padding-left: 2rem;">
             <h3 class="card-title">【<%= @review.name %>】</h3>
-            <p>◼ブルワリー：<%= @review.brewery %></p>
-            <p>◼購入場所　：<%= @review.location %></p>
-            <div id="show-stars"><label>◼評価　　　：</label></div>
+            <div id="show-stars"></div>
               <script>
                 var showRateElement = document.querySelector('#show-stars');
                 showRateElement.innerHTML = '';
@@ -27,19 +26,15 @@
                 };
                 window.raty(showRateElement, showOpt);
               </script>
+            <p>◼ブルワリー：<%= @review.brewery %></p>
+            <p>◼購入場所　：<%= @review.location %></p>
             <p>◼コメント　：<%= @review.comment %></p>
-            <p>◼投稿日　　：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
+            <p>◻️投稿日　　：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
             <p><small>◻️コメント数  <%= @review.review_comments.count %></small></p>
 
             <% @review.tags.each do |tag| %>
               <li style="list-style: none;"><%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %></li>
             <% end %>
-
-            <!-- % @review_tags.each do |tag| % -->
-              <!-- %= link_to tag_review_path(tag_id: tag.id) do % -->
-                <!-- %= tag.name % -->
-              <!-- % end % -->
-            <!-- % end % -->
 
             <canvas id="myChart" width="20" height="20"></canvas>
 
@@ -55,7 +50,7 @@
       </div>
     </div>
 
-    <div class="col-md-2">
+    <div class="col-md-3">
       <%= render "public/review_comments/form", review: @review, comment: @review_comment %>
       <%= render "public/review_comments/index", review: @review %>
     </div>

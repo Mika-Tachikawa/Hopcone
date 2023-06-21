@@ -29,9 +29,9 @@ $(document).on('turbolinks:load', function(){ //ページを読み込んだらjs
 
   label: '味のバランス', //レーダーチャートの表すもの
 
-  backgroundColor: "rgba(0,0,80,0.4)", //グラフの色
+  backgroundColor: "rgba(255,226,0,0.45)", //グラフの色
 
-  borderColor: "rgba(0,0,80,1)", //レーダーの線の色
+  borderColor: "rgba(255,169,0,1)", //レーダーの線の色
 
   data: [acidity,bitterness,sweetness] //実際に引っ張るデータの変数
 

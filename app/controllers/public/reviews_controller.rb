@@ -33,7 +33,7 @@ class Public::ReviewsController < ApplicationController
     @review_comment = ReviewComment.new
     @review_tags = @review.review_tags
     gon.acidity = @review.acidity
-    gon.bitterness = @review.hoppy
+    gon.hoppy = @review.hoppy
     gon.sweetness = @review.sweetness
   end
 
