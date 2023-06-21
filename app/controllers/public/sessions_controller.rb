@@ -4,6 +4,7 @@ class Public::SessionsController < Devise::SessionsController
  
   before_action :authenticate_user!, except: [:top, :about]
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :user_state, only: [:create]
 
   def after_sign_in_path_for(resource)
     account_path(resource)
@@ -20,14 +21,14 @@ class Public::SessionsController < Devise::SessionsController
   end
 
 # 退会しているかを判断し、退会済なら新規登録画面へ遷移
-def customer_state
+def user_state
   @account = User.find_by(email: params[:user][:email])
-  return if !@customer
-  if @customer.valid_password?(params[:userr][:password])&& @user.is_deleted == true
-    flash[:notice] = "退会済みです。再度ご登録をしてご利用ください。"
+  return if !@account
+  if @account.valid_password?(params[:user][:password])&& @account.is_deleted == true
+    flash[:notice] = "退会済みです。新規アカウントを作成してください。"
     redirect_to new_user_registration_path
   else
-    flash[:notice] = "ログインに成功しました。"
+    flash[:notice] = "Signed in successfully."
   end
 end
  

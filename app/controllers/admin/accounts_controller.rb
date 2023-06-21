@@ -6,7 +6,7 @@ class Admin::AccountsController < ApplicationController
   
   def show
     @account = User.find(params[:id])
-    @reviews = @account.reviews
+    @reviews = @account.reviews.page(params[:page])
   end
   
   def edit

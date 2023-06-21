@@ -37,6 +37,11 @@
                     <% end %>
                   </li>
                   <li class="nav-item">
+                    <%= link_to admin_reviews_path,class: 'nav-link text-yellow-800' do%>
+                      <i class="fa-regular fa-file-lines"></i>
+                    <% end %>
+                  </li>
+                  <li class="nav-item">
                     <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-yellow-800' do%>
                       <i class="fa-solid fa-arrow-right-from-bracket"></i>
                     <% end %>

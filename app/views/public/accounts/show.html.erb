@@ -1,7 +1,12 @@
+<%= flash[:notice] %>
 
 <div class="container-fluid text-center" style="margin-top: 3rem;">
   <div class="row" >
-    
+    <div class="mx-auto">
+      <h4><i class="fa-solid fa-user"></i>User page</h4>
+    </div>
+  </div>
+  <div class="row" >
     <div class="col-md-3"> 
       <h1><%= @account.name %></h1>
       <%= image_tag @account.get_profile_image(250,250) %>
