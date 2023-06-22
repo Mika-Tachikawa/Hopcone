@@ -13,7 +13,6 @@ class Public::ReviewsController < ApplicationController
       @review.save_tags(tag_list)
       redirect_to review_path(@review), notice: "You have created review successfully."
     else
-      #@reviews = Review.all
       render 'index'
     end
   end
@@ -28,11 +27,8 @@ class Public::ReviewsController < ApplicationController
       @reviews = @reviews.where(acidity: params[:acidity])
     end
     if params[:sweetness].to_i > 0
-      @reviews = @reviews.where(hoppy: params[:sweetness])
+      @reviews = @reviews.where(sweetness: params[:sweetness])
     end
-    
-    #@review = Review.find(params[:id])
-    #@tag_list = Tag.all
   end
 
   def show
@@ -73,7 +69,6 @@ class Public::ReviewsController < ApplicationController
   private
 
   def review_params
-    #params.require(:review).permit(:name, :beer_image, :brewery, :location, :hoppy, :acidity, :sweetness, :evaluation, :comment, :star, { tag_ids: [] }).merge(user_id: current_user.id)
     params.require(:review).permit(:name, :beer_image, :brewery, :location, :hoppy, :acidity, :sweetness, :evaluation, :comment, :star)
   end
 

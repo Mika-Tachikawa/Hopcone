@@ -7,7 +7,7 @@
     </div>
   </div>
   <div class="row" >
-    <div class="col-md-3"> 
+    <div class="col-md-3">
       <h1><%= @account.name %></h1>
       <%= image_tag @account.get_profile_image(250,250) %>
       <p><%= @account.introduction %></p>
@@ -19,13 +19,13 @@
       <% end %>
     </div>
 
-    <div class="col-md-9"> 
+    <div class="col-md-9">
       <div class="mx-auto">
         <div class="row row-cols-3">
           <% @reviews.each do |review| %>
             <div class="col mb-3">
               <div class="card text-bg-light" style="width: 20rem; height: 20rem;">
-                <div class="card-img" style="padding-top: 0.5rem;"> 
+                <div class="card-img" style="padding-top: 0.5rem;">
                   <%= link_to review_path(review.id) do %>
                     <%= image_tag review.get_beer_image(200,200) %>
                   <% end %>
@@ -43,6 +43,6 @@
         </div>
       </div>
     </div>
-          
+
   </div>
 </div>

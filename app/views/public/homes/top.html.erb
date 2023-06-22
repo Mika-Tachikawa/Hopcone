@@ -3,20 +3,17 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-8" style="padding-left: 3rem; margin-bottom: 8rem;">
-      <!-- p --><!--%= image_tag 'taproom_2.jpg', :size =>'870x660' % --><!-- /p -->
-      
       <div class="card" style="width: 54.5rem; height: 42.5rem;">
         <div class="card-img" style="padding-top: 1rem;">
           <%= image_tag 'taproom_2.jpg', :size =>'870x660' %>
             <div class="card-img-overlay">
-              <%= link_to about_path do %>
-                <%= image_tag 'welcome.png', :size =>'500x300' %>
-              <% end %>
+              <%= image_tag 'welcome.png', :size =>'500x300' %>
+                  <button type="button" class="btn btn-info btn-lg rounded-pill" data-toggle="modal" data-target="#exampleModal">
+                    more→
+                  </button>
             </div>
         </div>
       </div>
-      
-      
     </div>
     <div class="col-md-4" style="padding-top: 1rem; margin-bottom: 8rem; background-color:#4a423b">
           <h3 class="text-light">Latest post</h3>
@@ -28,3 +25,40 @@
 
 
 　
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">ようこそ、ビールの世界へ!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ビールといえば、<br>
+        「苦い」「一杯目に飲むやつ」「おじさんの飲み物」...<br>
+        <p></p>
+        本当に、ビールって、そんな飲み物？？？<br>
+        <p></p>
+        実はビールは、世界中に100種類以上あって、<br>
+        苦味が少なくさっぱりしたもの、逆にとびきり苦いもの、<br>
+        コーヒーみたいな風味のもの、スムージーみたいなもの、<br>
+        赤いもの、黒いもの、白いもの、濁ったもの...<br>
+        <p></p>
+        バラエティに富んでいるんです！<br>
+        <p></p>
+        あなたが、ビールはおいしくない・ダサいと思うのは、<br>
+        まだ自分に合ったビールが見つかっていないだけかも...？<br>
+        <p></p>
+        このサイトは、ビールのレビューサイトです。<br>
+        ビール好きなあなたも、ビール初心者のあなたも、<br>
+        奥深いビールの世界を、堪能してください。<br>
+        <p></p>
+        管理人より
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

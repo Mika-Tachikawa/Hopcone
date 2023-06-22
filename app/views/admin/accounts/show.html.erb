@@ -1,12 +1,12 @@
 <%= flash[:notice] %>
 
-<div class="container-fluid text-center" style="margin-top: 3rem;">
+<div class="container-fluid text-center" style="margin-top: 3rem; margin-bottom: 10rem;">
   <div class="row" >
     
     <div class="col-md-3"> 
       <div>
         <%= image_tag @account.get_profile_image(150,150) %>
-        <span><big><%= @account.name %></big></span>
+        <p><big><%= @account.name %></big></p>
         <p>メールアドレス:<%= @account.email %></p>
         <p>自己紹介:<%= @account.introduction %></p>
       </div>
@@ -19,7 +19,6 @@
       <% end %>
     </div>
 
-
     <div class="col-md-9"> 
       <div class="mx-auto">
         <div class="row row-cols-3">
@@ -28,7 +27,7 @@
             <%= link_to admin_review_path(reviews) do %>
               <%= image_tag reviews.get_beer_image(100,100) %>
               <h3><%= reviews.name %></h3>
-          <% end %>
+            <% end %>
               <p><%= reviews.comment %></p>
           </div>
           <% end %>
