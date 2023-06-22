@@ -1,21 +1,22 @@
-<table>
-  <tbody>
-      <% review.review_comments.each do |comment| %>
-      <tr>
-        
-        <td>
-          <%= link_to account_path(comment.user) do %>
-            <%= image_tag comment.user.get_profile_image(20,20) %><br>
-            <%= comment.user.name %>
-          <% end %>
-        </td>
-        <td><small><%= comment.comment %></small></td>
-        <td>
-          <% if comment.user == current_user %>
-            <%= link_to "Destroy", review_review_comment_path(review, comment), method: :delete, class: "btn btn-outline-danger btn-sm pull-right"%>
-          <% end %>
-        </td>
-      </tr>
-      <% end %>
-  </tbody>
-</table>
+<div style="margin-top: 4rem;">
+  <table>
+    <tbody>
+        <% review.review_comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= link_to account_path(comment.user) do %>
+              <%= image_tag comment.user.get_profile_image(20,20) %><br>
+              <%= comment.user.name %>
+            <% end %>
+          </td>
+          <td><small><%= comment.comment %></small></td>
+          <td class="d-md-flex justify-content-md-end">
+            <% if comment.user == current_user %>
+              <%= link_to "Destroy", review_review_comment_path(review, comment), method: :delete, class: "btn btn-outline-danger btn-sm pull-right"%>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

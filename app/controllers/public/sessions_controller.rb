@@ -25,7 +25,7 @@ def user_state
   @account = User.find_by(email: params[:user][:email])
   return if !@account
   if @account.valid_password?(params[:user][:password])&& @account.is_deleted == true
-    flash[:notice] = "退会済みです。新規アカウントを作成してください。"
+    flash[:notice] = "You have already unsubscribed. Please create a new account."
     redirect_to new_user_registration_path
   else
     flash[:notice] = "Signed in successfully."

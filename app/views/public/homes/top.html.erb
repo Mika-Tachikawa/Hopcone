@@ -1,12 +1,30 @@
+<%= flash[:notice] %>
+
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-8" style="padding-top: 1rem; padding-left: 3rem;">
-      <p><%= image_tag 'taproom_2.jpg', :size =>'870x660' %></p>
+    <div class="col-md-8" style="padding-left: 3rem; margin-bottom: 8rem;">
+      <!-- p --><!--%= image_tag 'taproom_2.jpg', :size =>'870x660' % --><!-- /p -->
+      
+      <div class="card" style="width: 54.5rem; height: 42.5rem;">
+        <div class="card-img" style="padding-top: 1rem;">
+          <%= image_tag 'taproom_2.jpg', :size =>'870x660' %>
+            <div class="card-img-overlay">
+              <%= link_to about_path do %>
+                <%= image_tag 'welcome.png', :size =>'500x300' %>
+              <% end %>
+            </div>
+        </div>
+      </div>
+      
+      
     </div>
-    <div class="col-md-4" style="padding-top: 1rem; background-color:#4a423b">
+    <div class="col-md-4" style="padding-top: 1rem; margin-bottom: 8rem; background-color:#4a423b">
           <h3 class="text-light">Latest post</h3>
           <%= render'public/reviews/top', reviews:@reviews_latest5%>
           <h4 class="nav-link" style="text-align: right"><%= link_to "view more...→", guest_guest_sign_in_path, method: :post %></h4>
     </div>
   </div>
 </div>
+
+
+　

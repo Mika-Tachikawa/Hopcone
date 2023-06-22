@@ -1,6 +1,6 @@
 <%= flash[:notice] %>
 
-<div class="container-fluid text-left" style="margin-top: 3rem;">
+<div class="container-fluid text-left" style="margin-top: 3rem; margin-bottom: 10rem;">
   <div class="row">
 
     <div class="col-md-9">
@@ -45,6 +45,19 @@
                 <%= image_tag @review.user.get_profile_image(50,50) %>
               <% end %>
             </small></p>
+            
+            
+            <p class="text-center">
+              <% if @review.user_id == current_user.id %>
+                <%= link_to "Edit", edit_review_path(@review.id), class: "btn btn-outline-success"%>
+              <% end %>
+             
+              <% if @review.user_id == current_user.id %>
+                <%= link_to "Destroy", review_path(@review.id), method: :delete, class: "btn btn-outline-danger","data-confirm" => "本当に消しますか？" %>
+              <% end %>
+            </p>
+            
+            
           </div>
         </div>
       </div>
@@ -56,14 +69,4 @@
     </div>
 
   </div>
-
-    <div class="col-md-5 text-center">
-      <% if @review.user_id == current_user.id %>
-      <%= link_to "Edit", edit_review_path(@review.id), class: "btn btn-success"%>
-      <% end %>
-      <% if @review.user_id == current_user.id %>
-      <%= link_to "Destroy", review_path(@review.id), method: :delete, class: "btn btn-danger","data-confirm" => "本当に消しますか？" %>
-      <% end %>
-    </div>
-
 </div>

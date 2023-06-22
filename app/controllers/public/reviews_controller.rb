@@ -2,26 +2,24 @@ class Public::ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    #@review.review_tags.build
   end
 
   def create
-    #@review = Review.new(review_params)
     @review = Review.new(review_params)
     @reviews = Review.page(params[:page])
     @review.user_id = current_user.id
     tag_list = params[:review][:tag_name].split(',')
     if @review.save 
       @review.save_tags(tag_list)
-      redirect_to review_path(@review), notice: "You have created book successfully."
+      redirect_to review_path(@review), notice: "You have created review successfully."
     else
-      #redirect_to review_path(@review)
-      @reviews = Review.all
+      #@reviews = Review.all
       render 'index'
     end
   end
 
   def index
+    @review = Review.new
     @reviews = Review.page(params[:page])
     if params[:hoppy].to_i > 0
       @reviews = @reviews.where(hoppy: params[:hoppy])
@@ -42,8 +40,8 @@ class Public::ReviewsController < ApplicationController
     @reviews = Review.page(params[:page])
     @review_comment = ReviewComment.new
     @review_tags = @review.review_tags
-    gon.acidity = @review.acidity
     gon.hoppy = @review.hoppy
+    gon.acidity = @review.acidity
     gon.sweetness = @review.sweetness
   end
 

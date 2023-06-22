@@ -1,5 +1,7 @@
 <%= flash[:notice] %>
 
+<%= render 'layouts/errors', obj: @review %>
+
   <div class="row justify-content-end" style="margin-right: 2rem;" >
     <div>
       <%= form_with url: reviews_path, method: :get do |f| %>
@@ -15,7 +17,7 @@
     </div>
   </div>
 
-<div class="container-fluid " style="margin-top: 1rem;">
+<div class="container-fluid " style="margin-top: 1rem; margin-bottom: 10rem;">
   <div class="col-md-12">
     <div style="margin-left: 1rem; margin-bottom: 2rem;">
       <h4><i class="fa-solid fa-landmark"></i>reviews</h4>

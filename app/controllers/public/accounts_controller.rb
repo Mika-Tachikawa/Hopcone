@@ -28,13 +28,13 @@ class Public::AccountsController < ApplicationController
     @account = current_user
     @account.update(is_deleted: true)
     reset_session
-    redirect_to root_path, notice: "退会処理が完了しました。ご利用ありがとうございました。"
+    redirect_to root_path, notice: "Withdrawal process has been completed."
   end
 
   def ensure_guest_user
     @user = User.find(params[:id])
     if @user.name == "guestuser"
-      redirect_to reviews_path , notice: 'ゲストユーザーはプロフィール編集画面へ遷移できません。'
+      redirect_to reviews_path , notice: 'Guest users cannot access this feature.'
     end
   end
 

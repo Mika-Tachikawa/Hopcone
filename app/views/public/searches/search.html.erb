@@ -1,8 +1,9 @@
-<% if @model == 'user' %>
-	<h3>Users search for "<%= @content %>"</h3>
-  <%= render 'public/accounts/index', accounts: @records %>
-<% elsif @model == 'review' || @model == 'tag' %>
-	<h3>Reviews search for "<%= @content %>"</h3>
-  <%= render 'public/reviews/index', reviews: @records %>
-<% end %>
-
+<div style="margin-bottom: 10rem;">
+  <% if @model == 'user' %>
+	  <h3>Users search for "<%= @content %>"</h3>
+    <%= render 'public/accounts/index', accounts: @records %>
+  <% elsif @model == 'review' || @model == 'tag' %>
+  	<h3>Reviews search for "<%= @content %>"</h3>
+    <%= render 'public/reviews/index', reviews: @records %>
+  <% end %>
+</div>

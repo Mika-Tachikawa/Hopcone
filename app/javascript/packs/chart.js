@@ -3,9 +3,9 @@ $(document).on('turbolinks:load', function(){ //ページを読み込んだらjs
 
  if (window.gon != null && $('#myChart').length) {
 
-  var acidity = gon.acidity; //gonを使った変数をjsで変数に代入
+  var hoppy = gon.hoppy;
 
-  var bitterness = gon.hoppy;
+  var acidity = gon.acidity; //gonを使った変数をjsで変数に代入
 
   var sweetness = gon.sweetness;
 
@@ -23,7 +23,7 @@ $(document).on('turbolinks:load', function(){ //ページを読み込んだらjs
 
   data: {
 
-  labels: ["酸", "苦", "甘"], //5角形の頂点の名前
+  labels: ["苦", "酸", "甘"], //5角形の頂点の名前
 
   datasets: [{
 
@@ -33,7 +33,7 @@ $(document).on('turbolinks:load', function(){ //ページを読み込んだらjs
 
   borderColor: "rgba(255,169,0,1)", //レーダーの線の色
 
-  data: [acidity,bitterness,sweetness] //実際に引っ張るデータの変数
+  data: [hoppy,acidity,sweetness] //実際に引っ張るデータの変数
 
   }],
 
