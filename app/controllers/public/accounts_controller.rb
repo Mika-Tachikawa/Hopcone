@@ -13,11 +13,18 @@ class Public::AccountsController < ApplicationController
 
   def edit
     @account = current_user
+    @accounts = User.find(params[:id])
+    unless @accounts.id == @account.id
+      redirect_to reviews_path
+    end
   end
 
   def update
     @account = User.find(params[:id])
-    if @account.update(user_params)  # データ（レコード）を編集
+    unless @account.id == current_user.id
+      redirect_to reviews_path
+    end
+    if @account.update(user_params)  
       redirect_to account_path(@account), notice: 'You have updated user successfully.'
     else
       render :edit
