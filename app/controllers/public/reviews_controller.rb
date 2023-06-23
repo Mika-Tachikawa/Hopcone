@@ -1,5 +1,7 @@
 class Public::ReviewsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def new
     @review = Review.new
   end
@@ -48,7 +50,7 @@ class Public::ReviewsController < ApplicationController
   def update
     @review = Review.find(params[:id])
     tag_list = params[:review][:tag_name].split(',')
-    if @review.update(review_params)  # データ（レコード）を編集
+    if @review.update(review_params)  
       @review.save_tags(tag_list)
       redirect_to review_path(@review), notice: 'You have updated review successfully.'
     else
@@ -78,5 +80,6 @@ class Public::ReviewsController < ApplicationController
       redirect_to reviews_path
     end
   end
+
 
 end

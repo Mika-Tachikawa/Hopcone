@@ -5,12 +5,12 @@
         <tbody>
           <% accounts.each do |account| %>
           <tr>
-              <td><%= link_to account_path(account) do%>
-                  <%= image_tag account.get_profile_image(80,80) %>
-                  <% end %></td>
-              <td><%= link_to account_path(account) do%>
-                  <h5><%= account.name %></h5>
-                  <% end %></td>
+            <td><%= link_to account_path(account) do%>
+              <%= image_tag account.get_profile_image(80,80) %>
+              <% end %></td>
+            <td><%= link_to account_path(account) do%>
+              <h5><%= account.name %></h5>
+              <% end %></td>
           </tr>
           <% end %>
         </tbody>

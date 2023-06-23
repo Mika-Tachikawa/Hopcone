@@ -29,7 +29,6 @@ Rails.application.routes.draw do
     root :to =>"homes#top"
     get "about" =>"homes#about", as: 'about'
     get '/search', to: 'searches#search',as: 'search'
-    #get 'search_tag' => 'posts#search_tag'
   end
 
   namespace :admin do

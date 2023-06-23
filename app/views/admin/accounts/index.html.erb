@@ -2,33 +2,33 @@
 
 <div class="container-fluid text-center" style="margin-top: 1rem;  margin-bottom: 10rem;">
   <div class="row" >
+    
     <div class="col-md-12">
       <div class="mx-auto">
-        
         <h1>登録済みユーザー一覧</h1>
-          <table class="table table-striped">
-            <tr>
-              <th>ユーザー名</th>
-              <th>メールアドレス</th>
-            </tr>
-          <% @accounts.each do |accounts| %>
-            <tr>
-              <td><h3>
-                <%= link_to admin_account_path(accounts.id) do%>
-                  <%= accounts.name %>
+        <table class="table table-striped">
+          <tr>
+            <th>ユーザー名</th>
+            <th>メールアドレス</th>
+          </tr>
+        <% @accounts.each do |accounts| %>
+          <tr>
+            <td><h3>
+              <%= link_to admin_account_path(accounts.id) do%>
+                <%= accounts.name %>
+              <% end %>
+            </h3></td>
+            <td><h3>
+              <%= link_to admin_account_path(accounts.id) do%>
+                <%= accounts.email %>
                 <% end %>
-              </h3></td>
-              <td><h3>
-                <%= link_to admin_account_path(accounts.id) do%>
-                  <%= accounts.email %>
-                  <% end %>
-             </h3></td>
-            </tr>
-          <% end %>
-          <%= paginate @accounts %>
-          </table>
-
-        </div>
+           </h3></td>
+          </tr>
+        <% end %>
+        <%= paginate @accounts %>
+        </table>
       </div>
+    </div>
+    
   </div>
 </div>

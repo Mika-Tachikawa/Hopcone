@@ -1,24 +1,24 @@
 <%= flash[:notice] %>
 
 <div class="container-fluid text-center" style="margin-top: 3rem; margin-bottom: 10rem;">
+  
   <div class="row" >
     <div class="mx-auto">
       <h4><i class="fa-solid fa-user"></i>User page</h4>
     </div>
   </div>
+  
   <div class="row" >
     <div class="col-md-3">
       <h1><%= @account.name %></h1>
       <%= image_tag @account.get_profile_image(250,250) %>
       <p><%= @account.introduction %></p>
-      <!-- ゲストユーザーはアカウントを編集できないように設定 -->
       <% if @account.name != "guestuser" && @account == current_user %>
         <%= link_to edit_account_path(@account),class: "btn btn-outline-secondary btn-lg edit_account_#{@account.id}" do%>
           <i class="fa-solid fa-user-pen"></i>
         <% end %>
       <% end %>
     </div>
-
     <div class="col-md-9">
       <div class="mx-auto">
         <div class="row row-cols-3">
@@ -43,6 +43,6 @@
         </div>
       </div>
     </div>
-
   </div>
+  
 </div>

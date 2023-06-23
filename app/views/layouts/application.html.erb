@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html>
-
+  
   <head>
     <title>BeerReview</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1">
     <script src="https://kit.fontawesome.com/087774b1f3.js" crossorigin="anonymous"></script>
-
     <%= include_gon %>
-
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <!-- %= javascript_include_tag "chart" % -->
-
   </head>
 
   <body class="d-flex flex-column vh-100" style="background-color:#fbf4d7">
@@ -22,9 +17,9 @@
     <div class="row justify-content-end" style="padding-top: 1rem; padding-bottom: 1rem; padding-right: 3rem;">
       <%= render 'public/searches/form' %>
     </div>
-      <main>
-        <%= yield %>
-      </main>
+    <main>
+      <%= yield %>
+    </main>
     <%= render 'layouts/footer' %>
   </body>
 

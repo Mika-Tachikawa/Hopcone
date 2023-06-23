@@ -46,10 +46,6 @@ class Review < ApplicationRecord
   def self.search_for(content, method)
     if method == 'perfect'
       Review.where(name: content)
-    #elsif method == 'forward'
-      #Book.where('title LIKE ?', content+'%')
-    #elsif method == 'backward'
-      #Book.where('title LIKE ?', '%'+content)
     else
       Review.where('name LIKE ?', '%'+content+'%')
     end

@@ -5,7 +5,7 @@
   <div class="row justify-content-end" style="margin-right: 2rem;" >
     <div>
       <%= form_with url: reviews_path, method: :get do |f| %>
-      <span><strong>今の気分は？：　</strong></span>
+      <span><strong>今の気分は？： </strong></span>
         <%= f.label :hoppy,"苦み" %>
         <%= f.range_field :hoppy, in: 0..5 , value: params[:hoppy].to_i %>
         <%= f.label :hoppy,"酸み" %>

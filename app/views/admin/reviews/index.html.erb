@@ -11,14 +11,14 @@
             <%= image_tag review.get_beer_image(150,150) %>
             <h3><%= review.name %></h3>
           <% end %>
-            <p><%= review.comment %></p>
-            <p><small>
-              reviewd by
-              <%= link_to admin_account_path(review.user.id) do%>
-                <%= review.user.name %>
-                <%= image_tag review.user.get_profile_image(50,50) %>
-              <% end %>
-            </small></p>
+          <p><%= review.comment %></p>
+          <p><small>
+            reviewd by
+            <%= link_to admin_account_path(review.user.id) do%>
+              <%= review.user.name %>
+              <%= image_tag review.user.get_profile_image(50,50) %>
+            <% end %>
+          </small></p>
         </div>
         <% end %>
         <%= paginate @reviews %>

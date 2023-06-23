@@ -6,25 +6,23 @@
       <div class="card" style="width: 54.5rem; height: 42.5rem;">
         <div class="card-img" style="padding-top: 1rem;">
           <%= image_tag 'taproom_2.jpg', :size =>'870x660' %>
-            <div class="card-img-overlay">
-              <%= image_tag 'welcome.png', :size =>'500x300' %>
-                  <button type="button" class="btn btn-info btn-lg rounded-pill" data-toggle="modal" data-target="#exampleModal">
-                    more→
-                  </button>
-            </div>
+          <div class="card-img-overlay">
+            <%= image_tag 'welcome.png', :size =>'500x300' %>
+              <button type="button" class="btn btn-info btn-lg rounded-pill" data-toggle="modal" data-target="#exampleModal">
+                more→
+              </button>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-md-4" style="padding-top: 1rem; margin-bottom: 8rem; background-color:#4a423b">
-          <h3 class="text-light">Latest post</h3>
-          <%= render'public/reviews/top', reviews:@reviews_latest5%>
-          <h4 class="nav-link" style="text-align: right"><%= link_to "view more...→", guest_guest_sign_in_path, method: :post %></h4>
+      <h3 class="text-light">Latest post</h3>
+      <%= render'public/reviews/top', reviews:@reviews_latest5%>
+      <h4 class="nav-link" style="text-align: right"><%= link_to "view more...→", guest_guest_sign_in_path, method: :post %></h4>
     </div>
   </div>
 </div>
 
-
-　
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

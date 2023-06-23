@@ -1,4 +1,5 @@
 <%= render 'layouts/errors', obj: @account %>
+
 <div class="container-fluid text-center" style="margin-top: 10rem; margin-bottom: 10rem;">
   <div class="row" >
     <div class="mx-auto">
@@ -7,19 +8,19 @@
         <div class="card-body text-right" style="padding-right: 6rem; background-color:#fbf4d7">
           <%= form_with model: @account,url:account_path(@account), method: :patch do |f| %>
             <div class="field">
-              <%= f.label :Profileimage %>
+              <%= f.label :Profileimage,"プロフィール画像" %>
               <%= f.file_field :profile_image, placeholder: "プロフィール画像", accept: "image/*" %>
             </div>
             <div class="field">
-              <%= f.label :name %>
+              <%= f.label :name,"ユーザー名" %>
               <%= f.text_field :name, autofocus: true, id: "inputName", size: "50" %>
             </div>
             <div class="field">
-              <%= f.label :email %>
+              <%= f.label :email,"メールアドレス" %>
               <%= f.email_field :email, autofocus: true,id: "inputE", size: "50" %>
             </div>
             <div class="field">
-              <%= f.label :introduction %>
+              <%= f.label :introduction,"自己紹介" %>
               <%= f.text_area :introduction, autofocus: true, id: "inputIntroduction", size: "50" %>
             </div>
             <div class="actions">
@@ -28,7 +29,9 @@
           <% end %>
         </div>
       </div>
-        <%= link_to "退会する", unsubscribe_path, class: "btn btn-secondary" %>
+      
+      <%= link_to "退会する", unsubscribe_path, class: "btn btn-secondary" %>
+        
     </div>
   </div>
 </div>

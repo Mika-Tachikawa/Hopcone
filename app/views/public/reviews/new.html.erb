@@ -1,47 +1,44 @@
 <div class="container-fluid text-center" style="margin-top: 10rem; margin-bottom: 10rem;">
   <div class="row" >
     <div class="mx-auto">
+      
       <h1><i class="fa-solid fa-file-signature"></i>New review</h1>
 
-      <div class="card card.border-secondary text-bg-light" style="width: 40rem; height: 35rem;">
+      <div class="card card.border-secondary text-bg-light" style="width: 50rem; height: 50rem;">
         <div class="card-body text-right" style="padding-right: 6rem; background-color:#fbf4d7">
           <%= form_with model: @review do |f| %>
           <div class="field">
-            <span>画像</span>
-              <%= f.file_field :beer_image, accept: "image/*" %>
+            <%= f.label :beer_image,"画像" %>
+            <%= f.file_field :beer_image, accept: "image/*" %>
           </div>
           <div class="field">
-            <span>ビール名</span>
+            <%= f.label :name,"ビール名" %>
             <%= f.text_area :name, size: "40"%>
           </div>
           <div class="field">
-            <span>ブルワリー</span>
+            <%= f.label :brewery,"ブルワリー" %>
             <%= f.text_area :brewery, size: "40"%>
           </div>
           <div class="field">
-            <span>ロケーション</span>
+            <%= f.label :location,"ロケーション(飲んだ店/購入場所)" %>
             <%= f.text_area :location, size: "40"%>
           </div>
           <div class="field">
-            <span>苦味</span>
+           <%= f.label :hoppy,"苦み" %>
             <%= f.number_field :hoppy, class: "taste", min: 0, max: 5 %>
           </div>
           <div class="field">
-            <span>酸味</span>
+            <%= f.label :acidity,"酸み" %>
             <%= f.number_field :acidity, class: "taste", min: 0, max: 5 %>
           </div>
           <div class="field">
-            <span>甘味</span>
+            <%= f.label :sweetness,"甘み" %>
             <%= f.number_field :sweetness, class: "taste", min: 0, max: 5 %>
           </div>
           <div class="form-group">
-            <span>タグ</span>
+            <%= f.label :tag_name,"タグ" %>
             <%= f.text_field :tag_name, class: 'form-control review_tag_name' %>
           </div>
-          <!-- div class="field" -->
-            <!-- span>タグ</span -->
-            <!-- %= f.select :tag_name, Tag.all.map{|o| [o.name, o.id]}, { include_blank: "--選択してください--" } % -->
-          <!-- /div -->
           <div id="stars">
             <label>Rate</label>
           </div>
@@ -55,9 +52,8 @@
             };
             window.raty(elem, opt);
           </script>
-          
           <div class="field">
-            <span>コメント</span>
+            <%= f.label :comment,"コメント" %>
             <%= f.text_area :comment %>
           </div>
           <%= f.submit '投稿', class: "btn btn-success btn-lg" %>

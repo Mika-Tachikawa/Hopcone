@@ -35,9 +35,6 @@
             <% @review.tags.each do |tag| %>
               <li style="list-style: none;"><%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %></li>
             <% end %>
-
-            <canvas id="myChart" width="20" height="20"></canvas>
-
             <p><small>
               reviewd by
               <%= link_to account_path(@review.user.id) do%>

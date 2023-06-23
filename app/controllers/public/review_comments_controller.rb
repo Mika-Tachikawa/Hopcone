@@ -1,5 +1,7 @@
 class Public::ReviewCommentsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def create
     review = Review.find(params[:review_id])
     comment = current_user.review_comments.new(review_comment_params)
@@ -9,11 +11,10 @@ class Public::ReviewCommentsController < ApplicationController
   end
 
   def destroy
-    #@comment = ReviewComment.find_by(id: params[:id], review_id: params[:review_id])
-    #@comment.destroy
     ReviewComment.find_by(id: params[:id], review_id: params[:review_id]).destroy
     redirect_to request.referer
   end
+
 
   private
   def review_comment_params

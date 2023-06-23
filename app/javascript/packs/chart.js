@@ -1,39 +1,34 @@
-$(document).on('turbolinks:load', function(){ //ページを読み込んだらjs発火
+$(document).on('turbolinks:load', function(){ 
 
 
  if (window.gon != null && $('#myChart').length) {
 
   var hoppy = gon.hoppy;
 
-  var acidity = gon.acidity; //gonを使った変数をjsで変数に代入
+  var acidity = gon.acidity;
 
   var sweetness = gon.sweetness;
 
+  var ctx = document.getElementById("myChart");
 
-  //console.log("ここまでは動いている？？？？");
-
-  var ctx = document.getElementById("myChart"); //html内のcanvasタグ
-
-
-  //console.log(ctx); //上にちゃんと値が入っているか
 
   new Chart(ctx, {
 
-  type: 'radar', //レーダーチャートを指定
+  type: 'radar', 
 
   data: {
 
-  labels: ["苦", "酸", "甘"], //5角形の頂点の名前
+  labels: ["苦", "酸", "甘"], 
 
   datasets: [{
 
-  label: '味のバランス', //レーダーチャートの表すもの
+  label: '味のバランス', 
 
-  backgroundColor: "rgba(255,226,0,0.45)", //グラフの色
+  backgroundColor: "rgba(255,226,0,0.45)", 
 
-  borderColor: "rgba(255,169,0,1)", //レーダーの線の色
+  borderColor: "rgba(255,169,0,1)", 
 
-  data: [hoppy,acidity,sweetness] //実際に引っ張るデータの変数
+  data: [hoppy,acidity,sweetness] 
 
   }],
 
@@ -45,17 +40,17 @@ $(document).on('turbolinks:load', function(){ //ページを読み込んだらjs
 
   pointLabels: {
 
-  fontColor: "green" //5角形の頂点の名前の色
+  fontColor: "green" 
 
   },
 
   ticks: {
 
-  min: 0, //minimun（チャートの中心)
+  min: 0, 
 
-  max: 5, //maximum (五角形の頂点)
+  max: 5, 
 
-  stepSize: 1 //1目盛りの区切り
+  stepSize: 1 
 
   }
 

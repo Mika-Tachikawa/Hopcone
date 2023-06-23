@@ -14,22 +14,23 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email]) 
   end
 
-# 退会しているかを判断し、退会済なら新規登録画面へ遷移
-def user_state
-  @account = User.find_by(email: params[:user][:email])
-  return if !@account
-  if @account.valid_password?(params[:user][:password])&& @account.is_deleted == true
-    flash[:notice] = "You have already unsubscribed. Please create a new account."
-    redirect_to new_user_registration_path
-  else
-    flash[:notice] = "Signed in successfully."
+  def user_state
+    @account = User.find_by(email: params[:user][:email])
+    return if !@account
+    if @account.valid_password?(params[:user][:password])&& @account.is_deleted == true
+      flash[:notice] = "You have already unsubscribed. Please create a new account."
+      redirect_to new_user_registration_path
+    else
+      flash[:notice] = "Signed in successfully."
+    end
   end
-end
+ 
  
 end

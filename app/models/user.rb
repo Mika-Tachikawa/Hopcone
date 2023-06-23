@@ -8,7 +8,6 @@ class User < ApplicationRecord
   
   has_many :reviews, dependent: :destroy
   has_many :review_comments, dependent: :destroy
-  #has_many :favorites, dependent: :destroy
   
   has_one_attached :beer_image
   has_one_attached :profile_image
@@ -34,10 +33,6 @@ class User < ApplicationRecord
   def self.search_for(content, method)
     if method == 'perfect'
       User.where(name: content)
-    #elsif method == 'forward'
-      #User.where('name LIKE ?', content + '%')
-    #elsif method == 'backward'
-      #User.where('name LIKE ?', '%' + content)
     else
       User.where('name LIKE ?', '%' + content + '%')
     end

@@ -1,46 +1,48 @@
 <%= render 'layouts/errors', obj: @review %>
+
 <div class="container-fluid text-center" style="margin-top: 10rem; margin-bottom: 10rem;">
   <div class="row" >
     <div class="mx-auto">
+      
       <h1><i class="fa-solid fa-file-signature"></i>Edit</h1>
       
       <div class="card card.border-secondary text-bg-light" style="width: 40rem; height: 35rem;">
         <div class="card-body text-right" style="padding-right: 6rem; background-color:#fbf4d7">
           <%= form_with model: @review, method: :patch do |f| %>
           <div class="field">
-            <span>画像</span>
+            <%= f.label :beer_image,"画像" %>
             <%= f.file_field :beer_image, accept: "image/*" %>
           </div>
           <div class="field">
-            <span>ビール名</span>
+            <%= f.label :name,"ビール名" %>
             <%= f.text_area :name%>
           </div>
           <div class="field">
-            <span>ブルワリー</span>
+            <%= f.label :brewery,"ブルワリー" %>
             <%= f.text_area :brewery%>
           </div>
           <div class="field">
-            <span>ロケーション(飲んだ店/購入場所)</span>
+            <%= f.label :location,"ロケーション(飲んだ店/購入場所)" %>
             <%= f.text_area :location %>
           </div>
           <div class="field">
-            <span>苦味</span>
+            <%= f.label :hoppy,"苦み" %>
             <%= f.number_field :hoppy, class: "taste", min: 0, max: 5 %>
           </div>
           <div class="field">
-            <span>酸味</span>
+            <%= f.label :acidity,"酸み" %>
             <%= f.number_field :acidity, class: "taste", min: 0, max: 5 %>
           </div>
           <div class="field">
             <span>甘味</span>
+            <%= f.label :sweetness,"甘み" %>
             <%= f.number_field :sweetness, class: "taste", min: 0, max: 5 %>
           </div>
           <div class="form-group">
-            <span>タグ</span>
+            <%= f.label :tag_name,"タグ" %>
             <%= f.text_field :tag_name, class: 'form-control review_tag_name' %>
           </div>
           <div id="stars"><label>評価</label></div>
-
             <script>
               let elem = document.querySelector('#stars');
               let opt = {
@@ -51,12 +53,11 @@
               };
               window.raty(elem, opt);
             </script>
-          
           <div class="field">
-          <span>コメント</span>
+            <%= f.label :comment,"コメント" %>
             <%= f.text_area :comment %>
           </div>
-          <%= f.submit '更新', class: "btn btn-success btn-lg"%>
+            <%= f.submit '更新', class: "btn btn-success btn-lg"%>
           <% end %>
         </div>
       </div>

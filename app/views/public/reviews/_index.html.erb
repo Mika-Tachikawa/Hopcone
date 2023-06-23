@@ -5,18 +5,26 @@
         <tbody>
           <% reviews.each do |review| %>
           <tr>
-            <td><%= link_to review_path(review.id) do %>
+            <td>
+              <%= link_to review_path(review.id) do %>
                 <%= image_tag review.get_beer_image(80,80) %>
-                <% end %></td>
-            <td><%= link_to review_path(review.id) do %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to review_path(review.id) do %>
                 <%= review.name %>
-                <% end %></td>
-            <td><%= link_to review_path(review.id) do %>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to review_path(review.id) do %>
                 <%= review.brewery %>
-                <% end %></td>
-            <td><% review.tags.each do |tag| %>
+              <% end %>
+            </td>
+            <td>
+              <% review.tags.each do |tag| %>
                 <%= tag.name %>
-                <% end %></td>
+              <% end %>
+            </td>
           </tr>
           <% end %>
         </tbody>

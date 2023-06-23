@@ -1,11 +1,11 @@
-      <table class="table table-sm table-bordered text-light">
-        <tbody>
-          <% reviews.each do |review| %>
-          <tr>
-            <td><%= image_tag review.get_beer_image(80,80) %></td>
-            <td><%= review.name %></td>
-            <td><%= review.brewery %></td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+<table class="table table-sm table-bordered text-light">
+  <tbody>
+    <% reviews.each do |review| %>
+    <tr>
+      <td><%= image_tag review.get_beer_image(80,80) %></td>
+      <td><%= review.name %></td>
+      <td><%= review.brewery %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

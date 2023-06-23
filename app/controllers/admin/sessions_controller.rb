@@ -13,10 +13,12 @@ class Admin::SessionsController < Devise::SessionsController
     admin_root_path
   end
 
+
   protected
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email]) 
   end
+ 
  
 end
