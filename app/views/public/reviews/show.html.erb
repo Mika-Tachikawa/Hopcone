@@ -1,16 +1,16 @@
 <%= flash[:notice] %>
 
-<div class="container-fluid text-left" style="margin-top: 3rem; margin-bottom: 10rem;">
+<div class="container-fluid show-body text-left">
   <div class="row">
 
     <div class="col-md-9">
-      <div class="card text-bg-light" style="width: 60rem; height: 50rem;">
+      <div class="card showreview-card text-bg-light">
         <div class="row no-gutters">
 
-          <div class="col-md-5 card-img" style="padding-top: 2rem; padding-left: 2rem;">
+          <div class="col-md-5 showreview-card-img card-img">
             <%= image_tag @review.get_beer_image(350,350) %>
           </div>
-          <div class="card-body col-md-4 text-left" style="padding-top: 2rem; padding-left: 2rem;">
+          <div class="card-body showreview-card-body col-md-4 text-left">
             <h3 class="card-title">【<%= @review.name %>】</h3>
             <div id="show-stars"></div>
               <script>
@@ -35,6 +35,9 @@
             <% @review.tags.each do |tag| %>
               <li style="list-style: none;"><%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %></li>
             <% end %>
+
+            <canvas id="myChart" width="20" height="20"></canvas>
+
             <p><small>
               reviewd by
               <%= link_to account_path(@review.user.id) do%>
