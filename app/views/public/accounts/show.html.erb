@@ -1,6 +1,6 @@
 <%= flash[:notice] %>
 
-<div class="container-fluid text-center" style="margin-top: 3rem; margin-bottom: 10rem;">
+<div class="container-fluid text-center basic-place">
   
   <div class="row" >
     <div class="mx-auto">
@@ -24,8 +24,8 @@
         <div class="row row-cols-3">
           <% @reviews.each do |review| %>
             <div class="col mb-3">
-              <div class="card text-bg-light" style="width: 20rem; height: 20rem;">
-                <div class="card-img" style="padding-top: 0.5rem;">
+              <div class="card basic-card text-bg-light">
+                <div class="card-img basic-card-img">
                   <%= link_to review_path(review.id) do %>
                     <%= image_tag review.get_beer_image(200,200) %>
                   <% end %>

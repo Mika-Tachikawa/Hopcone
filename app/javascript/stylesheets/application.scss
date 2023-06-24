@@ -1,1 +1,52 @@
 @use '~bootstrap/scss/bootstrap';
+
+body{
+  background-color: #fbf4d7;
+}
+
+.serch{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-right: 3rem;
+}
+
+header{
+  background-color: #ffffff
+}
+
+footer{
+  background-color: #ceb178
+}
+
+.basic-place{
+  padding-left: 3rem;
+  margin-bottom: 8rem;
+}
+
+.taproom{
+  width: 54.5rem;
+  height: 42.5rem;
+}
+
+.welcome{
+  padding-top: 1rem;
+}
+
+.latestpost{
+  padding-top: 1rem;
+  margin-bottom: 8rem;
+  background-color:#4a423b;
+}
+
+.viewmore{
+  text-align: right;
+}
+
+.basic-card{
+  width: 20rem; 
+  height: 20rem;
+}
+
+.basic-card-img{
+  padding-top: 0.5rem;
+}

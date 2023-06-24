@@ -12,10 +12,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="d-flex flex-column vh-100" style="background-color:#fbf4d7">
+  <body class="d-flex flex-column vh-100">
     <%= render 'layouts/header' %>
-    <div class="row justify-content-end" style="padding-top: 1rem; padding-bottom: 1rem; padding-right: 3rem;">
-      <%= render 'public/searches/form' %>
+    <div class="row justify-content-end">
+      <div class="serch">
+        <%= render 'public/searches/form' %>
+      </div>
     </div>
     <main>
       <%= yield %>
