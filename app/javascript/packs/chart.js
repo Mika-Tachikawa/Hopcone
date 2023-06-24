@@ -48,7 +48,7 @@ $(document).on('turbolinks:load', function(){
 
   min: 0, 
 
-  max: 5, 
+  max: 10, 
 
   stepSize: 1 
 

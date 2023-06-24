@@ -7,11 +7,11 @@
     <%= form_with url: reviews_path, method: :get do |f| %>
     <span><strong>今の気分は？： </strong></span>
       <%= f.label :hoppy,"苦み" %>
-      <%= f.range_field :hoppy, in: 0..5 , value: params[:hoppy].to_i %>
+      <%= f.range_field :hoppy, in: 0..10 , value: params[:hoppy].to_i %>
       <%= f.label :hoppy,"酸み" %>
-      <%= f.range_field :acidity, in: 0..5 , value: params[:acidity].to_i %>
+      <%= f.range_field :acidity, in: 0..10 , value: params[:acidity].to_i %>
       <%= f.label :hoppy,"甘み" %>
-      <%= f.range_field :sweetness, in: 0..5 , value: params[:sweetness].to_i %>
+      <%= f.range_field :sweetness, in: 0..10 , value: params[:sweetness].to_i %>
       <%= f.submit '検索', name: nil, class: "btn btn-outline-dark btn-sm"%>
     <% end %>
   </div>
