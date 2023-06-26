@@ -2,6 +2,7 @@ class Admin::ReviewsController < ApplicationController
   
   def index
     @reviews = Review.page(params[:page])
+    @reviews = Review.page(params[:page]).order(created_at: :desc)
   end
   
   def show

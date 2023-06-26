@@ -22,6 +22,7 @@ class Public::ReviewsController < ApplicationController
   def index
     @review = Review.new
     @reviews = Review.page(params[:page])
+    @reviews = Review.page(params[:page]).order(created_at: :desc)
     if params[:hoppy].to_i > 0
       @reviews = @reviews.where(hoppy: params[:hoppy])
     end
