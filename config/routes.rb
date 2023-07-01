@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :reviews do
       resources :review_comments, only: [:create, :destroy]
-      resources :favorites, only: [:create, :destroy]  
+      resource :favorites, only: [:create, :destroy]  
     end
     resources :accounts
     get 'users/unsubscribe' => 'accounts#unsubscribe', as: 'unsubscribe'

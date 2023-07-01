@@ -1,0 +1,13 @@
+<% if review.favorited_by?(current_user) %>
+
+  <%= link_to review_favorites_path(review), method: :delete do %>
+    <i class="fa-solid fa-beer-mug-empty" aria-hidden="true" style="color: orange;"></i>
+    <%= review.favorites.count %> かんぱい！
+  <% end %>
+<% else %>
+  <%= link_to review_favorites_path(review), method: :post do %>
+    <i class="fa-solid fa-beer-mug-empty" aria-hidden="true"></i>
+    <%= review.favorites.count %> かんぱい！
+  <% end %>
+
+<% end %>
