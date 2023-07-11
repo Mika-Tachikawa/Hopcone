@@ -14,5 +14,11 @@ class Public::FavoritesController < ApplicationController
     redirect_to request.referer
   end
 
+  def index
+    @account = User.find(params[:user_id])
+    @favorites = Favorite.where(user_id: @account.id).pluck(:review_id)
+    @favorite_reviews = Review.find(@favorites)
+  end
+
 
 end

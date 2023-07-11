@@ -39,4 +39,8 @@ class User < ApplicationRecord
     end
   end
   
+  def favorited_by?(review)
+    favorites.where(review_id: review.id).exists?
+  end
+  
 end
