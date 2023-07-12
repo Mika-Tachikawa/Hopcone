@@ -14,9 +14,12 @@
       <%= image_tag @account.get_profile_image(250,250) %>
       <p><%= @account.introduction %></p>
       <% if @account.name != "guestuser" && @account == current_user %>
-        <%= link_to edit_account_path(@account),class: "btn btn-outline-secondary btn-lg edit_account_#{@account.id}" do%>
-          <i class="fa-solid fa-user-pen"></i>
-        <% end %>
+        <p><%= link_to edit_account_path(@account),class: "btn btn-outline-secondary btn-lg edit_account_#{@account.id}" do%>
+            <i class="fa-solid fa-user-pen"></i> プロフィールを編集
+           <% end %></p>
+        <p><%=link_to review_favorites_path(@account),class: "btn btn-outline-secondary btn-lg" do%>
+            <i class="fa-solid fa-beer-mug-empty"></i> 乾杯！したレビュー
+           <% end %></p>
       <% end %>
     </div>
     <div class="col-md-9">
