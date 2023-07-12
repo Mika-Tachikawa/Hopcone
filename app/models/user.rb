@@ -8,6 +8,7 @@ class User < ApplicationRecord
   
   has_many :reviews, dependent: :destroy
   has_many :review_comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
   
   has_one_attached :beer_image
   has_one_attached :profile_image
@@ -36,6 +37,10 @@ class User < ApplicationRecord
     else
       User.where('name LIKE ?', '%' + content + '%')
     end
+  end
+  
+  def favorited_by?(review)
+    favorites.where(review_id: review.id).exists?
   end
   
 end
