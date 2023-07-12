@@ -33,6 +33,21 @@ class Public::ReviewsController < ApplicationController
       @reviews = @reviews.where(sweetness: params[:sweetness])
     end
   end
+  
+  def taste
+    @review = Review.new
+    @reviews = Review.page(params[:page])
+    @reviews = Review.page(params[:page]).order(created_at: :desc)
+    if params[:hoppy].to_i > 0
+      @reviews = @reviews.where(hoppy: params[:hoppy])
+    end
+    if params[:acidity].to_i > 0
+      @reviews = @reviews.where(acidity: params[:acidity])
+    end
+    if params[:sweetness].to_i > 0
+      @reviews = @reviews.where(sweetness: params[:sweetness])
+    end
+  end
 
   def show
     @review = Review.find(params[:id])

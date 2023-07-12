@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :reviews do
       resources :review_comments, only: [:create, :destroy]
-      resources :favorites, only: [:create, :destroy, :index]  
+      resources :favorites, only: [:create, :destroy, :index]
     end
     resources :accounts do
       member do
@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     root :to =>"homes#top"
     get "about" =>"homes#about", as: 'about'
     get '/search', to: 'searches#search',as: 'search'
+    get '/taste', to: 'reviews#taste',as: 'taste'
   end
 
   namespace :admin do
