@@ -1,18 +1,28 @@
-<div class="container-fluid show-body text-center">
+<div class="container-fluid show-body text-left">
   <div class="row" >
-    <div class="mx-auto">
-      <%= image_tag @review.get_beer_image(150,150) %>
-      <h3>ビール名:<%= @review.name %></h3>
-      <p>ブルワリー:<%= @review.brewery %></p>
-      <p>ロケーション:<%= @review.location %></p>
-      <p>コメント：<%= @review.comment %></p>
-      <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
-      <p><small>
-        reviewd by
-          <%= @review.user.name %>
-          <%= image_tag @review.user.get_profile_image(50,50) %>
-      </small></p>
-      <%= link_to "レビュー削除", admin_review_path(@review.id), method: :delete, class: "btn btn-danger","data-confirm" => "本当に消しますか？" %>
+    <div class="mx-auto text-center">
+      
+      <div class="col mb-9">
+        <div class="card showreview-card text-bg-light">
+          <div class="card-img basic-card-img">
+            
+            <%= image_tag @review.get_beer_image(150,150) %>
+            <h3>ビール名:<%= @review.name %></h3>
+            <p>ブルワリー:<%= @review.brewery %></p>
+            <p>ロケーション:<%= @review.location %></p>
+            <p>コメント：<%= @review.comment %></p>
+            <p>投稿日：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
+            <p><small>
+              reviewd by
+                <%= @review.user.name %>
+                <%= image_tag @review.user.get_profile_image(50,50) %>
+            </small></p>
+            <%= link_to "レビュー削除", admin_review_path(@review.id), method: :delete, class: "btn btn-danger","data-confirm" => "本当に消しますか？" %>
+      
+          </div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </div>

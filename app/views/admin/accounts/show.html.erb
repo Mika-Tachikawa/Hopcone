@@ -24,13 +24,17 @@
       <div class="mx-auto">
         <div class="row row-cols-3">
           <% @reviews.each do |reviews| %>
-          <div>
-            <%= link_to admin_review_path(reviews) do %>
-              <%= image_tag reviews.get_beer_image(100,100) %>
-              <h3><%= reviews.name %></h3>
-            <% end %>
-            <p><%= reviews.comment %></p>
-          </div>
+            <div class="col mb-3">
+              <div class="card basic-card text-bg-light">
+                <div class="card-img basic-card-img">
+                  <%= link_to admin_review_path(reviews) do %>
+                    <%= image_tag reviews.get_beer_image(100,100) %>
+                    <h3><%= reviews.name %></h3>
+                  <% end %>
+                  <p><%= reviews.comment %></p>
+                </div>
+              </div>
+            </div>
           <% end %>
           <%= paginate @reviews %>
         </div>
