@@ -1,10 +1,21 @@
 <footer class="text-dark pt-4 pb-4 fixed-bottom">
+  
   <div class="container-fluid">
+    
+      <div class="row justify-content-end">
+        <div class="serch">
+          <%= render 'public/searches/form' %>
+        </div>
+      </div>
+      
+    
     <div class="row">
-      <div class="mx-auto">
+      <div class="mx-auto justify-content-center">
         <p>© Hopcone</p>
           <%= link_to "staff only", admin_root_path, class: "btn btn-outline-secondary btn-sm" %>
       </div>
     </div>
+    
   </div>
+  
 </footer>

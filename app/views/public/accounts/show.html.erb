@@ -30,7 +30,7 @@
               <div class="card basic-card text-bg-light">
                 <div class="card-img basic-card-img">
                   <%= link_to review_path(review.id) do %>
-                    <%= image_tag review.get_beer_image(200,200) %>
+                    <%= image_tag review.get_beer_image(200,200) , class: 'basic-card-img'%>
                   <% end %>
                 </div>
                 <div class="card-body">

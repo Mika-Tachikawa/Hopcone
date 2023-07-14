@@ -8,11 +8,11 @@
         <div class="row no-gutters">
 
           <div class="col-md-5 showreview-card-img card-img">
-            <%= image_tag @review.get_beer_image(350,350) %>
+            <%= image_tag @review.get_beer_image(350,350),  class: 'showreview-card-img' %>
             <p><%= render "public/favorites/btn", review: @review %></p>
           </div>
-          <div class="card-body showreview-card-body col-md-4 text-left">
-            <h3 class="card-title">【<%= @review.name %>】</h3>
+          <div class="show-card-body showreview-card-body col-md-4 text-left">
+            <h3 class="show-card-title">【<%= @review.name %>】</h3>
             <div id="show-stars"></div>
               <script>
                 var showRateElement = document.querySelector('#show-stars');

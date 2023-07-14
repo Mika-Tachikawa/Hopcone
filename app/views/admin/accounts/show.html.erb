@@ -28,10 +28,10 @@
               <div class="card basic-card text-bg-light">
                 <div class="card-img basic-card-img">
                   <%= link_to admin_review_path(reviews) do %>
-                    <%= image_tag reviews.get_beer_image(100,100) %>
-                    <h3><%= reviews.name %></h3>
+                    <%= image_tag reviews.get_beer_image(100,100) , class: 'basic-card-img'%>
+                    <p><small><%= reviews.name %></small></p>
                   <% end %>
-                  <p><%= reviews.comment %></p>
+                  <p class="card-body"><%= reviews.comment %></p>
                 </div>
               </div>
             </div>

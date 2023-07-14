@@ -21,21 +21,29 @@ footer{
 
 .basic-place{
   padding-left: 3rem;
-  margin-bottom: 8rem;
+  margin-bottom: 15rem;
 }
 
 .taproom{
+  width: 54.6rem;
+  height: 41rem;
+  margin-top: 2rem;
+}
+
+.taproom-img{
   width: 54.5rem;
   height: 42.5rem;
 }
 
 .welcome{
   padding-top: 1rem;
+  width: 500px;
+  height: 300px;
 }
 
 .latestpost{
-  padding-top: 1rem;
-  margin-bottom: 8rem;
+  margin-top: 2rem;
+  margin-bottom: 15rem;
   background-color:#4a423b;
 }
 
@@ -54,16 +62,17 @@ footer{
 
 .basic-form{
   margin-top: 10rem;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 
 .edit-card{
-  width: 50rem; 
-  height: 20rem;
+  width: 30rem; 
+  height: auto;
+  margin-bottom: 1rem;
 }
 
 .edit-card-body{
-  padding-right: 6rem;
+  padding-right: 1rem;
   background-color: #fbf4d7;
 }
 
@@ -75,7 +84,7 @@ footer{
 }
 
 .signup-card-body{
-  padding-right: 10rem;
+  padding-right: 4rem;
 }
 
 .signin-card{
@@ -85,7 +94,11 @@ footer{
 }
 
 .signin-card-body{
-  padding-right: 6rem;
+  padding-right: 1rem;
+}
+
+.login-card-body{
+  padding-right: 2rem;
 }
 
 .comment{
@@ -93,12 +106,12 @@ footer{
 }
 
 .search-results{
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 
 .index-body{
   margin-top: 1rem;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 
 .index-title{
@@ -116,20 +129,20 @@ footer{
 }
 
 .newreview-card{
-  width: 50rem;
-  height: 50rem;
+  width: 25rem;
+  height: auto;
   background-color:#fbf4d7;
 }
 
 .editreview-card{
-  width: 40rem;
-  height: 50rem;
+  width: 25rem;
+  height: auto;
   background-color:#fbf4d7;
 }
 
 .show-body{
   margin-top: 3rem;
-  margin-bottom: 10rem;
+  margin-bottom: 15rem;
 }
 
 .showreview-card{
@@ -145,4 +158,217 @@ footer{
 .showreview-card-body{
   padding-top: 2rem;
   padding-left: 2rem;
+}
+
+
+
+@media screen and (max-width: 425px) {
+  header{
+    text-align: right;
+    background-color: #ffffff
+  }
+}
+
+
+@media screen and (max-width: 425px) {
+  .serch{
+    text-align: right;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .serch-brock{
+    text-align: right;
+    display:  block;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .basic-place{
+    text-align: light;
+    margin-bottom: 15rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .top-place{
+    text-align: light;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .taproom{
+    margin: 0 auto;
+    text-align: center;
+    max-width: 100%;
+    height: 17rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .taproom-img{
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .welcome{
+    width: 10rem;
+    height: 7rem;
+    padding-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .basic-card{
+    width: 8rem; 
+    height: 10rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .basic-card-img{
+    padding-top: 0.5rem;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .card-body{
+    font-size: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .card-title{
+    font-size: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .index-card{
+    width: 8rem; 
+    height: 15rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .profile-img{
+    max-width: 0;
+    height: 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .flavor{
+    text-align: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .showreview-card{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .showreview-card-img{
+    padding-top: 2rem;
+    padding-left: 1rem;
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .showreview-card-body{
+    padding-top: 2rem;
+    padding-left: 2rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .basic-form{
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .editreview-card{
+    width: 100%;
+    height: auto;
+    margin-bottom: 15rem;
+    background-color:#fbf4d7;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .signin-card{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .signin-card-body{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .login-card-body{
+    width: 100%;
+    height: auto;
+    margin-right: 3rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .newreview-card{
+    width: 100%;
+    height: auto;
+    margin-bottom: 15rem;
+    background-color:#fbf4d7;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .edit-card{
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    background-color:#fbf4d7;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .edit-card-body{
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .signup-card{
+    width: 100%;
+    height: auto;
+    margin-bottom: 5rem;
+    background-color: #fbf4d7;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .signup-card-body{
+    padding-right: 1rem;
+  }
 }
