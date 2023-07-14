@@ -10,15 +10,15 @@
             <div class="card index-card text-bg-light">
               <div class="card-img basic-card-img">
                   <%= link_to admin_review_path(review.id) do %>
-                    <%= image_tag review.get_beer_image(200,200) %>
-                    <h3><%= review.name %></h3>
+                    <%= image_tag review.get_beer_image(200,200), class: 'basic-card-img' %>
+                    <p><small><%= review.name %></small></p>
                   <% end %>
-                  <p><%= review.comment %></p>
-                  <p><small>
+                  <p class="card-body"><%= review.comment %></p>
+                  <p class="card-body"><small>
                     reviewd by
                     <%= link_to admin_account_path(review.user.id) do%>
                       <%= review.user.name %>
-                      <%= image_tag review.user.get_profile_image(50,50) %>
+                      <%= image_tag review.user.get_profile_image(50,50), class: 'profile-img' %>
                     <% end %>
                   </small></p>
               </div>

@@ -1,7 +1,7 @@
 <div class="container-fluid index-body">
   
   <div class="col-md-12 index-title">
-    <h4><i class="fa-solid fa-beer-mug-empty"></i> 乾杯！したレビュー</h4>
+    <h4><i class="fa-solid fa-beer-mug-empty"></i> あなたが 乾杯！したレビュー</h4>
   </div>
   
     <div class="mx-auto text-center">
@@ -11,12 +11,12 @@
             <div class="card index-card text-bg-light">
               <div class="card-img basic-card-img">
                 <%= link_to review_path(review.id) do %>
-                  <%= image_tag review.get_beer_image(200,200) %>
+                  <%= image_tag review.get_beer_image(200,200) , class: 'basic-card-img' %>
                 <% end %>
               </div>
               <div class="card-body">
                 <%= link_to review_path(review.id) do %>
-                  <h3>【<%= review.name %>】</h3>
+                  <h3 class="card-title">【<%= review.name %>】</h3>
                 <% end %>
                 <p>◼<%= review.brewery %></p>
                 <div id="show-stars_<%= review.id %>"></div>
@@ -37,7 +37,7 @@
                   reviewd by
                   <%= link_to account_path(review.user.id) do%>
                     <%= review.user.name %>
-                    <%= image_tag review.user.get_profile_image(50,50) %>
+                    <%= image_tag review.user.get_profile_image(50,50), class: 'profile-img'  %>
                   <% end %>
                 </small></p>
               </div>
