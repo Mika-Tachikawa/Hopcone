@@ -8,7 +8,6 @@
         <div class="signin-card-body text-right">
           <%= form_with model: @review do |f| %>
           <div class="field">
-            <%= f.label :beer_image,"画像" %>
             <%= f.file_field :beer_image, accept: "image/*" %>
           </div>
           <div class="field">

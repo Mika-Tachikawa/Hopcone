@@ -35,15 +35,15 @@
           <div class="show-card-body showreview-card-body col-md-4 text-left">
             <p><strong>◼ブルワリー：</strong></p>
             <p class="space"><%= @review.brewery %></p>
-            <p><strong>◼購入場所　：</strong></p>
+            <p><strong>◼購入場所：</strong></p>
             <p class="space"><%= @review.location %></p>
-            <p><strong>◼コメント　：</strong></p>
+            <p><strong>◼コメント：</strong></p>
             <p class="space"><%= @review.comment %></p>
-            <p><strong>◻投稿日　　：</strong></p>
+            <p><strong>◻投稿日：</strong></p>
             <p class="space"><%= @review.created_at.strftime('%Y/%m/%d') %></p>
             <p><strong>◻コメント数：</strong></p>
             <p class="space"><%= @review.review_comments.count %></P>
-            <p><strong>◻タグ　　　：</strong></p>
+            <p><strong>◻タグ：</strong></p>
             <p class="space"><% @review.tags.each do |tag| %>
                               <%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %>
                              <% end %></p>

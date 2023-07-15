@@ -8,7 +8,7 @@
         <div class="card-img welcome">
           <div class="card-img-overlay">
             <%= image_tag 'welcome.png', class: 'welcome' %>
-              <button type="button" class="btn btn-info btn-lg rounded-pill" data-toggle="modal" data-target="#exampleModal">
+              <button type="button" class="btn btn-info btn-lg rounded-pill" data-toggle="modal" data-target="#topModal">
                 more→
               </button>
           </div>
@@ -18,16 +18,20 @@
     <div class="latestpost col-md-4">
       <h3 class="text-light">Latest post</h3>
       <%= render'public/reviews/top', reviews:@reviews_latest5%>
-      <h4 class="nav-link viewmore"><%= link_to "view more...→", guest_guest_sign_in_path, method: :post %></h4>
+      <% if user_signed_in? %>
+        <h4 class="nav-link viewmore"><%= link_to "view more...→", reviews_path %></h4>
+      <% else %>
+        <h4 class="nav-link viewmore"><%= link_to "view more...→", guest_guest_sign_in_path, method: :post %></h4>
+      <% end %>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="topModal" tabindex="-1" role="dialog" aria-labelledby="topModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">ようこそ、ビールの世界へ!</h5>
+        <h5 class="modal-title" id="topModalLabel">ようこそ、ビールの世界へ!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

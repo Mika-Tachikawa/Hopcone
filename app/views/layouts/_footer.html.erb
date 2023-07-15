@@ -1,14 +1,15 @@
 <footer class="text-dark pt-4 pb-4 fixed-bottom">
   <div class="container-fluid">
     <div class="row justify-content-center">
-      <button type="button" class="btn btn-secondary btn-lg rounded-pill" data-toggle="modal" data-target="#exampleModal">
-        検索する
-      </button>
+      <% if user_signed_in? %>
+        <button type="button" class="btn btn-secondary rounded-pill" data-toggle="modal" data-target="#exampleModal">
+          検索する
+        </button>
+      <% end %>
     </div>
     <div class="row footer-item">
       <div class="mx-auto justify-content-center">
-        <p>© Hopcone</p>
-          <%= link_to "staff only", admin_root_path, class: "btn btn-outline-secondary btn-sm" %>
+        <p><%= link_to "© Hopcone", admin_root_path, class: "btn btn-outline-secondary btn-sm" %></p>
       </div>
     </div>
   </div>
