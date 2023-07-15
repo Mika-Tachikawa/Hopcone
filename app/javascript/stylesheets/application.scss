@@ -6,6 +6,7 @@ body{
 }
 
 .serch{
+  text-align: right;
   padding-top: 1rem;
   padding-bottom: 1rem;
   padding-right: 3rem;
@@ -125,6 +126,7 @@ footer{
 }
 
 .flavor{
+  text-align: right;
   margin-right: 2rem;
 }
 
@@ -146,18 +148,27 @@ footer{
 }
 
 .showreview-card{
-  width: 60rem;
-  height: 70rem;
+  width: 100%;
+  height: auto;
 }
 
 .showreview-card-img{
   padding-top: 2rem;
   padding-left: 2rem;
+  padding-bottom: 1rem;
 }
 
 .showreview-card-body{
   padding-top: 2rem;
-  padding-left: 2rem;
+  padding-left: 1rem;
+}
+
+.footer-item{
+  padding-top: 1rem;
+}
+
+.space{
+  text-indent: 1em;
 }
 
 
@@ -225,8 +236,8 @@ footer{
 
 @media screen and (max-width: 425px) {
   .basic-card{
-    width: 8rem; 
-    height: 10rem;
+    width: 7rem;
+    height: 17rem;
   }
 }
 
@@ -252,7 +263,7 @@ footer{
 
 @media screen and (max-width: 425px) {
   .index-card{
-    width: 8rem; 
+    width: 7.5rem; 
     height: 15rem;
   }
 }

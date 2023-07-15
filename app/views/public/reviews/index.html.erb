@@ -51,18 +51,6 @@
       </div>
     </div>
     
-    <div class="row flavor justify-content-end">
-      <div class="flavor">
-        <%= form_with url: taste_path, method: :get do |f| %>
-        <span class="flavor"><strong>【味で探す】今の気分は？： </strong></span>
-          <span class="flavor"><%= f.label :hoppy,"苦み" %><%= f.range_field :hoppy, in: 0..10 , value: params[:hoppy].to_i %></span>
-          <span class="flavor"><%= f.label :hoppy,"酸み" %><%= f.range_field :acidity, in: 0..10 , value: params[:acidity].to_i %></span>
-          <span class="flavor"><%= f.label :hoppy,"甘み" %><%= f.range_field :sweetness, in: 0..10 , value: params[:sweetness].to_i %></span>
-          <%= f.submit '検索', name: nil, class: "btn btn-outline-dark btn-sm"%>
-        <% end %>
-      </div>
-    </div>
-    
 </div>
 
 

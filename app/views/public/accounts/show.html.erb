@@ -13,6 +13,14 @@
       <h1><%= @account.name %></h1>
       <%= image_tag @account.get_profile_image(250,250) %>
       <p><%= @account.introduction %></p>
+      <div class="guest">    
+          <% if @account.name == "guestuser" %>
+          　<p>【infomation】</p>
+            <p>あなたのアカウントを作成するには、</p>
+            <p>ゲストからログアウトしてください。</p>
+            <p>ヘッダーのボタンから、操作ができます。</p>
+          <% end %>
+      </div>    
       <% if @account.name != "guestuser" && @account == current_user %>
         <p><%= link_to edit_account_path(@account),class: "btn btn-outline-secondary btn-lg edit_account_#{@account.id}" do%>
             <i class="fa-solid fa-user-pen"></i> プロフィールを編集
@@ -38,6 +46,20 @@
                     <h5 class="card-title">【<%= review.name %>】</h5>
                   <% end %>
                   <p><small>◼️️<%= review.brewery %></small></p>
+                  <div id="show-stars_<%= review.id %>"></div>
+                    <script>
+                      var showRateElement = document.querySelector('#show-stars_<%= review.id %>');
+                      showRateElement.innerHTML = '';
+                      var showOpt = {
+                        starOn: "<%= asset_path('star-on.png') %>",
+                        starOff: "<%= asset_path('star-off.png') %>",
+                        starHalf: "<%= asset_path('star-half.png') %>",
+                        scoreName: 'review[star]',
+                        score: "<%= review.star %>",
+                        readOnly: true
+                      };
+                      window.raty(showRateElement, showOpt);
+                    </script>
                 </div>
               </div>
             </div>

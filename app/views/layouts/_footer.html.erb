@@ -1,21 +1,47 @@
 <footer class="text-dark pt-4 pb-4 fixed-bottom">
-  
   <div class="container-fluid">
-    
-      <div class="row justify-content-end">
-        <div class="serch">
-          <%= render 'public/searches/form' %>
-        </div>
-      </div>
-      
-    
-    <div class="row">
+    <div class="row justify-content-center">
+      <button type="button" class="btn btn-secondary btn-lg rounded-pill" data-toggle="modal" data-target="#exampleModal">
+        検索する
+      </button>
+    </div>
+    <div class="row footer-item">
       <div class="mx-auto justify-content-center">
         <p>© Hopcone</p>
           <%= link_to "staff only", admin_root_path, class: "btn btn-outline-secondary btn-sm" %>
       </div>
     </div>
-    
   </div>
-  
 </footer>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">検索する</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+        <div class="serch">
+          <%= render 'public/searches/form' %>
+        </div>
+        
+        <div class="flavor">
+          <%= form_with url: taste_path, method: :get do |f| %>
+          <span class="flavor"><strong>【味で探す】今の気分は？</strong></span>
+            <p class="flavor"><%= f.label :hoppy,"苦み：" %><%= f.range_field :hoppy, in: 0..10 , value: params[:hoppy].to_i %></p>
+            <p class="flavor"><%= f.label :hoppy,"酸み：" %><%= f.range_field :acidity, in: 0..10 , value: params[:acidity].to_i %></p>
+            <p class="flavor"><%= f.label :hoppy,"甘み：" %><%= f.range_field :sweetness, in: 0..10 , value: params[:sweetness].to_i %></p>
+            <p><%= f.submit '検索', name: nil, class: "btn btn-success btn-sm"%></p>
+          <% end %>
+        </div>
+        
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

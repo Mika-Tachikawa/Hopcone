@@ -1,9 +1,11 @@
 <% if user_signed_in? %>
   <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <span class="serch-brock">【検索】
-          <%= f.text_field :content %></span>
-    <span class="serch-brock"><%= f.select :model, options_for_select({ "User" => "user", "Review" => "review", "Tag" => "tag" }) %>
-          <%= f.select :method, options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }) %>
-          <%= f.submit '検索', class: "btn btn-outline-dark btn-sm" %></span>
+    <div class="serch-brock">
+      <p><strong>【ユーザー・レビューで探す】</strong></p>
+      <p><%= f.text_field :content %></p>
+      <p><%= f.select :model, options_for_select({ "User" => "user", "Review" => "review", "Tag" => "tag" }) %>
+            <%= f.select :method, options_for_select({ "完全一致" => "perfect", "部分一致" => "partial" }) %>
+            <%= f.submit '検索', class: "btn btn-info btn-sm" %></p>
+    </div>
   <% end %>
 <% end %>
