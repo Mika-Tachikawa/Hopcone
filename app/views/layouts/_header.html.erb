@@ -12,38 +12,38 @@
               <% if user_signed_in? %>
                 <li class="nav-item">
                  <%=  link_to reviews_path, class: 'nav-link text-yellow-800' do%>
-                   <i class="fa-solid fa-landmark"></i>
+                   <i class="fa-solid fa-landmark"></i>レビュー一覧
                  <% end %>
                 </li>
                 <li class="nav-item">
                  <%=  link_to account_path(current_user.id), class: 'nav-link text-yellow-800' do%>
-                   <i class="fa-solid fa-user"></i>
+                   <i class="fa-solid fa-user"></i>マイページ
                  <% end %>
                 </li>
                 <li class="nav-item">
                  <%=  link_to new_review_path, class: 'nav-link text-yellow-800' do%>
-                  <i class="fa-solid fa-file-signature"></i>
+                  <i class="fa-solid fa-file-signature"></i>新規作成
                  <% end %>
                 </li>
                 <li class="nav-item">
                  <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-yellow-800' do%>
-                  <i class="fa-solid fa-right-from-bracket"></i>
+                  <i class="fa-solid fa-right-from-bracket"></i>ログアウト
                  <% end %>
                 </li>
               <% elsif admin_signed_in? %>
                 <li class="nav-item">
                   <%= link_to admin_accounts_path,class: 'nav-link text-yellow-800' do%>
-                    <i class="fa-regular fa-user"></i>
+                    <i class="fa-regular fa-user"></i>ユーザー一覧
                   <% end %>
                 </li>
                 <li class="nav-item">
                   <%= link_to admin_reviews_path,class: 'nav-link text-yellow-800' do%>
-                    <i class="fa-regular fa-file-lines"></i>
+                    <i class="fa-regular fa-file-lines"></i>レビュー一覧
                   <% end %>
                 </li>
                 <li class="nav-item">
                   <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-yellow-800' do%>
-                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>ログアウト
                   <% end %>
                 </li>
               <% else %>
@@ -52,12 +52,12 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to new_user_registration_path,class: 'nav-link text-yellow-800' do%>
-                    <i class="fa-solid fa-user-plus"></i>
+                    <i class="fa-solid fa-user-plus"></i>アカウント作成
                   <% end %>
                 </li>
                 <li class="nav-item">
                   <%= link_to new_user_session_path ,class: 'nav-link text-yellow-800' do%>
-                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <i class="fa-solid fa-right-to-bracket"></i>ログイン
                   <% end %>
                 </li>
               <% end %>

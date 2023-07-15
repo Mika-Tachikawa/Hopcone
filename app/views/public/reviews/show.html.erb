@@ -3,14 +3,16 @@
 <div class="container-fluid show-body text-left">
   <div class="row">
 
-    <div class="col-md-9">
-      <div class="card showreview-card text-bg-light">
+
+    <div class="col-md-12">
+      <div class="card border-light showreview-card text-bg-light">
         <div class="row no-gutters">
 
-          <div class="col-md-5 showreview-card-img card-img">
-            <%= image_tag @review.get_beer_image(350,350),  class: 'showreview-card-img' %>
-            <p><%= render "public/favorites/btn", review: @review %></p>
+          <div class="col-md-4 showreview-card-img card-img">
+            <%= image_tag @review.get_beer_image(400,400),  class: 'showreview-card-img' %>
+            <p><big><%= render "public/favorites/btn", review: @review %></big></p>
           </div>
+          
           <div class="show-card-body showreview-card-body col-md-4 text-left">
             <h3 class="show-card-title">【<%= @review.name %>】</h3>
             <div id="show-stars"></div>
@@ -27,18 +29,24 @@
                 };
                 window.raty(showRateElement, showOpt);
               </script>
-            <p>◼ブルワリー：<%= @review.brewery %></p>
-            <p>◼購入場所　：<%= @review.location %></p>
-            <p>◼コメント　：<%= @review.comment %></p>
-            <p>◻️投稿日　　：<%= @review.created_at.strftime('%Y/%m/%d') %></p>
-            <p><small>◻️コメント数  <%= @review.review_comments.count %></small></p>
-
-            <% @review.tags.each do |tag| %>
-              <li style="list-style: none;"><%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %></li>
-            <% end %>
-
             <canvas id="myChart" width="20" height="20"></canvas>
-
+          </div>
+            
+          <div class="show-card-body showreview-card-body col-md-4 text-left">
+            <p><strong>◼ブルワリー：</strong></p>
+            <p class="space"><%= @review.brewery %></p>
+            <p><strong>◼購入場所　：</strong></p>
+            <p class="space"><%= @review.location %></p>
+            <p><strong>◼コメント　：</strong></p>
+            <p class="space"><%= @review.comment %></p>
+            <p><strong>◻投稿日　　：</strong></p>
+            <p class="space"><%= @review.created_at.strftime('%Y/%m/%d') %></p>
+            <p><strong>◻コメント数：</strong></p>
+            <p class="space"><%= @review.review_comments.count %></P>
+            <p><strong>◻タグ　　　：</strong></p>
+            <p class="space"><% @review.tags.each do |tag| %>
+                              <%= link_to tag.name, search_path(content: tag.name, model:"tag", method: "perfect") %>
+                             <% end %></p>
             <p><small>
               reviewd by
               <%= link_to account_path(@review.user.id) do%>
@@ -46,23 +54,21 @@
                 <%= image_tag @review.user.get_profile_image(50,50) %>
               <% end %>
             </small></p>
-            
             <p class="text-center">
               <% if @review.user_id == current_user.id %>
                 <%= link_to "Edit", edit_review_path(@review.id), class: "btn btn-outline-success"%>
               <% end %>
-             
               <% if @review.user_id == current_user.id %>
                 <%= link_to "Destroy", review_path(@review.id), method: :delete, class: "btn btn-outline-danger","data-confirm" => "本当に消しますか？" %>
               <% end %>
             </p>
-            
           </div>
+          
         </div>
       </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-4 showreview-card-body">
       <%= render "public/review_comments/form", review: @review, comment: @review_comment %>
       <%= render "public/review_comments/index", review: @review %>
     </div>
