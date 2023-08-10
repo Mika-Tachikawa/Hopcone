@@ -23,19 +23,19 @@
               <% end %>
               <p>◼<%= review.brewery %></p>
               <div id="show-stars_<%= review.id %>"></div>
-              <script>
-                var showRateElement = document.querySelector('#show-stars_<%= review.id %>');
-                showRateElement.innerHTML = '';
-                var showOpt = {
-                  starOn: "<%= asset_path('star-on.png') %>",
-                  starOff: "<%= asset_path('star-off.png') %>",
-                  starHalf: "<%= asset_path('star-half.png') %>",
-                  scoreName: 'review[star]',
-                  score: "<%= review.star %>",
-                  readOnly: true
-                };
-                window.raty(showRateElement, showOpt);
-              </script>
+                <script>
+                  var showRateElement = document.querySelector('#show-stars_<%= review.id %>');
+                  showRateElement.innerHTML = '';
+                  var showOpt = {
+                    starOn: "<%= asset_path('star-on.png') %>",
+                    starOff: "<%= asset_path('star-off.png') %>",
+                    starHalf: "<%= asset_path('star-half.png') %>",
+                    scoreName: 'review[star]',
+                    score: "<%= review.star %>",
+                    readOnly: true
+                  };
+                  window.raty(showRateElement, showOpt);
+                </script>
               <p><small>
                 reviewd by
                 <%= link_to account_path(review.user.id) do%>
@@ -43,6 +43,9 @@
                   <%= image_tag review.user.get_profile_image(50,50), class: 'profile-img' %>
                 <% end %>
               </small></p>
+              <p class="create-at text-minimum">
+                <%= review.created_at.strftime('%Y/%m/%d') %>
+              </p>
             </div>
           </div>
         </div>

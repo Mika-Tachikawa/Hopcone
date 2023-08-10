@@ -106,6 +106,7 @@ footer{
   margin-top: 4rem;
 }
 
+
 .search-results{
   margin-bottom: 15rem;
 }
@@ -123,6 +124,10 @@ footer{
 .index-card{
   width: 25rem;
   height: 30rem;
+}
+
+.text-minimum{
+  font-size: 8px;
 }
 
 .flavor{
@@ -164,7 +169,7 @@ footer{
   padding-left: 1rem;
 }
 
-.footer-item{
+.footer-admin-path{
   padding-top: 1rem;
 }
 
@@ -244,7 +249,7 @@ footer{
 
 @media screen and (max-width: 500px) {
   .basic-card-img{
-    padding-top: 0.5rem;
+    padding-top: 0rem;
     max-width: 100%;
     height: auto;
   }
@@ -253,12 +258,14 @@ footer{
 @media screen and (max-width: 500px) {
   .card-body{
     font-size: 0;
+    margin: 0;
+    padding: 0;
   }
 }
 
 @media screen and (max-width: 500px) {
   .card-title{
-    font-size: 0;
+    font-size: 2px;
   }
 }
 
@@ -383,5 +390,19 @@ footer{
 @media screen and (max-width: 500px) {
   .signup-card-body{
     padding-right: 1rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .create-at{
+    font-size: 0px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .footer-item{
+    display: flex;
+    justify-content: center;
+    justify-content: space-evenly;
   }
 }

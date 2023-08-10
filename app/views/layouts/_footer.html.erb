@@ -1,5 +1,5 @@
 <footer class="text-dark pt-4 pb-4 fixed-bottom">
-  <div class="container-fluid">
+  <div class="container-fluid  footer-item">
     <div class="row justify-content-center">
       <% if user_signed_in? %>
         <button type="button" class="btn btn-secondary rounded-pill" data-toggle="modal" data-target="#exampleModal">
@@ -7,8 +7,8 @@
         </button>
       <% end %>
     </div>
-    <div class="row footer-item">
-      <div class="mx-auto justify-content-center">
+    <div class="row">
+      <div class="mx-auto justify-content-center footer-admin-path">
         <p><%= link_to "© Hopcone", admin_root_path, class: "btn btn-outline-secondary btn-sm" %></p>
       </div>
     </div>
