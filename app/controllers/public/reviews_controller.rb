@@ -15,7 +15,7 @@ class Public::ReviewsController < ApplicationController
       @review.save_tags(tag_list)
       redirect_to review_path(@review), notice: "You have created review successfully."
     else
-      render 'index'
+      render :new
     end
   end
 
